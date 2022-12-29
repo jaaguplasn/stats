@@ -7,4 +7,4 @@ let info = {
     xp: null
 }
 let data = await queryAPI(LevelQuery, {id: "541"});
-console.log(data[data])
+console.log(data.data.transaction)
