@@ -2,7 +2,9 @@
  //query id
  export const LoginQuery = `
  query login($login: String){
-   user(where: { login: { _eq: $login }}) {
+   user(where: { login: { _eq: $login }}
+    limit: 1
+    offset: 0) {
      id
      login
    }
