@@ -7,4 +7,4 @@ let info = {
     xp: null
 }
 let res = await queryAPI(LoginQuery, {login: "jaaguplasn"});
-console.log(res.data[user])
+console.log(res.data.user[0])
