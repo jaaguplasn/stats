@@ -6,7 +6,6 @@
     limit: 1
     offset: 0) {
      id
-     login
    }
  }
 `;
