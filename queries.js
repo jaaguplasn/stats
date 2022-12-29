@@ -1,12 +1,13 @@
  
  //query id
- export const query = `query {
-    user(where: { id: {_eq: 541}}) {
-        id
-        login
-    }
-
-}`;
+ export const LoginQuery = `
+ query login($login: String){
+   user(where: { login: { _eq: $login }}) {
+     id
+     login
+   }
+ }
+`;
  //query level with id
 export const LevelQuery = `query level($id: Int)
 {
