@@ -1,3 +1,3 @@
-import * as queryAPI from './queryAPI.js';
-import * as query from './query.js';
-queryAPI.queryAPI(query.query)
+import { queryAPI } from "./queryAPI.js";
+import { query } from "./query.js";
+queryAPI.queryAPI(query.query);
