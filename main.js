@@ -1,3 +1,4 @@
 import { queryAPI } from "./queryAPI.js";
 import { query, LevelQuery } from "./queries.js";
-await queryAPI(LevelQuery, {id: "541"});
+let data = await queryAPI(LevelQuery, {id: "541"});
+console.log(data)
