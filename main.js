@@ -6,5 +6,5 @@ let info = {
     level: null,
     xp: null
 }
-let data = await queryAPI(LoginQuery, {login: "jaaguplasn"});
-console.log(data.data.user)
+let res = await queryAPI(LoginQuery, {login: "jaaguplasn"});
+console.log(res.data.user.id)
