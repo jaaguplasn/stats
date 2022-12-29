@@ -1,5 +1,5 @@
 import { queryAPI } from "./queryAPI.js";
-import { Loginquery, LevelQuery } from "./queries.js";
+import { LoginQuery, LevelQuery } from "./queries.js";
 
 let info = {
     id: null,
