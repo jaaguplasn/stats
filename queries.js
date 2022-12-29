@@ -1,3 +1,5 @@
+ 
+ //query id
  export const query = `query {
     user(where: { id: {_eq: 541}}) {
         id
@@ -5,7 +7,7 @@
     }
 
 }`;
-
+ //query level with id
 export const LevelQuery = `query level($id: Int)
 {
   transaction( where: {userId: {_eq: $id}, type: {_eq: "level"}}
