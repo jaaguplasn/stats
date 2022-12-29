@@ -1,3 +1,3 @@
 import { queryAPI } from "./queryAPI.js";
-import { query } from "./queries.js";
-await queryAPI(query);
+import { query, LevelQuery } from "./queries.js";
+await queryAPI(LevelQuery, {login: "jaaguplasn"});

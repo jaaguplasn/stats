@@ -1,4 +1,4 @@
-export async function queryAPI(query) {
+export async function queryAPI(query, variables = {}) {
   fetch("https://01.kood.tech/api/graphql-engine/v1/graphql", {
     method: "POST",
     headers: {
@@ -6,7 +6,8 @@ export async function queryAPI(query) {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query
+      query,
+      variables
     }),
   })
     .then((response) => {
