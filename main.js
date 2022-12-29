@@ -1,3 +1,3 @@
-import { queryAPI } from "./queryAPI.js";
-import { query } from "./query.js";
-queryAPI.queryAPI(query.query);
+import { queryAPI } from "./query.js";
+import { query } from "./queries";
+await queryAPI(query);
