@@ -14,6 +14,6 @@ export async function queryAPI(query, variables = {}) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      console.log(data[data]);
     });
 }
