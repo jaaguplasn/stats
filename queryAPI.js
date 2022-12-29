@@ -1,6 +1,6 @@
 export async function queryAPI(query, variables = {}) {
   try {
-    let response = fetch("https://01.kood.tech/api/graphql-engine/v1/graphql", {
+    let response =  await fetch("https://01.kood.tech/api/graphql-engine/v1/graphql", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
