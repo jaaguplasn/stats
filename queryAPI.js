@@ -11,9 +11,9 @@ export async function queryAPI(query, variables = {}) {
         variables,
       }),
     });
-    console.log(response);
     if (!response.ok) throw Error("Couldn't fetch data from API");
     let data = await response.json();
+    return data;
   } catch (e) {
     alert(e);
   }
