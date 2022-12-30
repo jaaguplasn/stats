@@ -26,6 +26,7 @@ for (let i = 0; i < res.data.progress.length; i++) {
     //if its piscine rust 2022 add xp manually
     let task = new Task(res.data.progress[i].object.name, res.data.progress[i].updatedAt, 390000)
     info.tasks.push(task);
+    info.xp += 390000
   } else {
     let xpData = await queryAPI(XpQuery, {
       login: "jaaguplasn",
@@ -36,6 +37,8 @@ for (let i = 0; i < res.data.progress.length; i++) {
     //task.date = res.data.progress[i].updatedAt
     let task = new Task(res.data.progress[i].object.name, res.data.progress[i].updatedAt, xpData.data.transaction[0].amount)
     info.tasks.push(task)
+    info.xp += xpData.data.transaction[0].amount
+
   }
 }
 console.log(info)
