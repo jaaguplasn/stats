@@ -5,7 +5,7 @@ let info = {
   id: null,
   level: null,
   xp: null,
-  tasks: null,
+  tasks: {},
 };
 let task = {
   name: null,
@@ -18,4 +18,4 @@ info.id = res.data.user[0].id;
 res = await queryAPI(LevelQuery, { id: info.id });
 info.level = res.data.transaction[0].amount;
 res = await queryAPI(TaskQuery, {login: "jaaguplasn"})
-console.log(res.data.progress[0].object)
+console.log(res.data.progress[0].object.name)
