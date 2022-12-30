@@ -35,7 +35,7 @@ export const TaskQuery = `query tasks($login: String!) {
 }`;
 
 //query  task xp
-export const xpQuery = `query xp($login: String!, $task: String!) {
+export const XpQuery = `query xp($login: String!, $task: String!) {
   transaction(
     limit: 1
     where: {user: {login: {_eq: $login}}, object: {name: {_eq: $task}}, type: {_eq: "xp"}}

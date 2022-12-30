@@ -1,5 +1,5 @@
 import { queryAPI } from "./queryAPI.js";
-import { LoginQuery, LevelQuery, TaskQuery } from "./queries.js";
+import { LoginQuery, LevelQuery, TaskQuery, XpQuery } from "./queries.js";
 
 class Task {
   constructor(name, date, xp) {
@@ -21,7 +21,7 @@ info.level = res.data.transaction[0].amount;
 res = await queryAPI(TaskQuery, { login: "jaaguplasn" });
 for (let i = 0; i < res.data.progress.length; i++) {
   //get task xp
-  let xpData = await queryAPI(TaskQuery, { login: "jaaguplasn" });
+  let xpData = await queryAPI(XpQuery, { login: "jaaguplasn" });
   console.log(xpData);
   //task.name = res.data.progress[i].object.name;
   //task.date = res.data.progress[i].updatedAt
