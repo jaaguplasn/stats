@@ -19,7 +19,7 @@ res = await queryAPI(LevelQuery, { id: info.id });
 info.level = res.data.transaction[0].amount;
 res = await queryAPI(TaskQuery, { login: "jaaguplasn" });
 console.log(res)
-for (let i = 0; i < res.lenght; i++) {
+for (let i = 0; i < res.data.lenght; i++) {
   console.log("here")
   console.log(res.data.progress[i].object.name)
 }
