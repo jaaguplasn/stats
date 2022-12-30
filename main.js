@@ -19,7 +19,6 @@ info.id = res.data.user[0].id;
 res = await queryAPI(LevelQuery, { id: info.id });
 info.level = res.data.transaction[0].amount;
 res = await queryAPI(TaskQuery, { login: "jaaguplasn" });
-console.log(res.data.progress);
 for (let i = 0; i < res.data.progress.length; i++) {
   //get task xp
   let xpData = await queryAPI(TaskQuery, { login: "jaaguplasn" });
