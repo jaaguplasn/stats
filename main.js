@@ -11,7 +11,7 @@ let info = {
   id: null,
   level: null,
   xp: null,
-  tasks: { Task },
+  tasks: [ Task ],
 };
 
 let res = await queryAPI(LoginQuery, { login: "jaaguplasn" });
@@ -21,13 +21,21 @@ info.level = res.data.transaction[0].amount;
 res = await queryAPI(TaskQuery, { login: "jaaguplasn" });
 for (let i = 0; i < res.data.progress.length; i++) {
   //get task xp
-  let xpData = await queryAPI(XpQuery, {
-    login: "jaaguplasn",
-    task: res.data.progress[i].object.name,
-  });
-  console.log(res.data.progress[i].object.name)
-  console.log(xpData.data.transaction[0]);
-  //console.log(xpData.data.transaction[0].amount);
-  //task.name = res.data.progress[i].object.name;
-  //task.date = res.data.progress[i].updatedAt
+
+  if (res.data.progress[i].object.name == "Piscine Rust 2022") {
+    //if its piscine rust 2022 add xp manually
+    let task = new Task(res.data.progress[i].object.name, res.data.progress[i].updatedAt, 390000)
+    info.tasks.push(task);
+  } else {
+    let xpData = await queryAPI(XpQuery, {
+      login: "jaaguplasn",
+      task: res.data.progress[i].object.name,
+    });
+    //console.log(xpData.data.transaction[0].amount);
+    //task.name = res.data.progress[i].object.name;
+    //task.date = res.data.progress[i].updatedAt
+    let task = new Task(res.data.progress[i].object.name, res.data.progress[i].updatedAt, xpData.data.transaction[0].amount)
+    info.tasks.push(task)
+  }
+console.log(info)
 }
