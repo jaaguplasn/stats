@@ -11,11 +11,13 @@ let task = {
   name: null,
   date: null,
   xp: null,
-}
+};
 
 let res = await queryAPI(LoginQuery, { login: "jaaguplasn" });
 info.id = res.data.user[0].id;
 res = await queryAPI(LevelQuery, { id: info.id });
 info.level = res.data.transaction[0].amount;
-res = await queryAPI(TaskQuery, {login: "jaaguplasn"})
-console.log(res.data.progress[0].object.name)
+res = await queryAPI(TaskQuery, { login: "jaaguplasn" });
+for (let i = 0; i < res.lenght; i++) {
+  console.log(res.data.progress[i].object.name)
+}
