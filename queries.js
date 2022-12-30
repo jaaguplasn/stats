@@ -33,3 +33,14 @@ export const TaskQuery = `query tasks($login: String!) {
   path
   }
 }`;
+
+//query  task xp
+export const xpQuery = `query xp($login: String!, $task: String!) {
+  transaction(
+    limit: 1
+    where: {user: {login: {_eq: $login}}, object: {name: {_eq: $task}}, type: {_eq: "xp"}}
+    order_by: {amount: desc_nulls_last}
+  ) {
+    amount
+  }
+}`;
