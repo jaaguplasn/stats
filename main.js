@@ -37,5 +37,5 @@ for (let i = 0; i < res.data.progress.length; i++) {
     let task = new Task(res.data.progress[i].object.name, res.data.progress[i].updatedAt, xpData.data.transaction[0].amount)
     info.tasks.push(task)
   }
-console.log(info)
 }
+console.log(info)
