@@ -25,7 +25,7 @@ for (let i = 0; i < res.data.progress.length; i++) {
     login: "jaaguplasn",
     task: res.data.progress[i].object.name,
   });
-  console.log(xpData);
+  console.log(xpData.data.transaction[0].amount);
   //task.name = res.data.progress[i].object.name;
   //task.date = res.data.progress[i].updatedAt
 }
