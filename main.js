@@ -30,12 +30,12 @@ window.addEventListener("load", function () {
 
 //showing load icon
 const activateLoading = () => {
-  let loader = document.querySelector(".spinner-frame");
+  let loader = document.querySelector(".loader");
   loader.setAttribute("visibility", "visible");
 };
 
 const deactivateLoading = () => {
-  let loader = document.querySelector(".spinner-frame");
+  let loader = document.querySelector(".loader");
 
   loader.setAttribute("visibility", "hidden");
 };
