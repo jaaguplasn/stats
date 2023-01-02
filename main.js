@@ -7,7 +7,7 @@ const btn = document.querySelector('.search-btn')
 .addEventListener("click", async(event) => {
   event.preventDefault()
   let username = document.getElementById("searchInput").value
-  let userId = await LoginQuery(); //only for seeing if user exists
+  let userId = await LoginQuery(username); //only for seeing if user exists
   if (userId == undefined) {
     console.log("username does not exist")
   } else {
