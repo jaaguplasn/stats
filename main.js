@@ -17,6 +17,7 @@ const btn = document
       let info = await getInfo(username, userId.id);
       deactivateLoading();
       //insert magic here
+      console.log(info);
     }
   });
 
