@@ -1,7 +1,6 @@
 import { getInfo } from "./info.js";
 import { LoginQuery } from "./queries.js";
 
-
 const User = "jaaguplasn";
 
 //magic
@@ -30,15 +29,13 @@ window.addEventListener("load", function () {
 });
 
 //showing load icon
-const activateLoading=()=>{
-  let loader = document.getElementsByClassName("spinner-frame")
-    console.log(loader)
-      loader.setAttribute("visibility", "visible")
-  }
-  
-  const deactivateLoading=()=>{
-      let loader = document.getElementsByClassName("spinner-frame")
-      
-          loader.setAttribute("visibility", "hidden")
-      }
-  
+const activateLoading = () => {
+  let loader = document.querySelector(".spinner-frame");
+  loader.setAttribute("visibility", "visible");
+};
+
+const deactivateLoading = () => {
+  let loader = document.querySelector(".spinner-frame");
+
+  loader.setAttribute("visibility", "hidden");
+};
