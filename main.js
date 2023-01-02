@@ -1,4 +1,4 @@
-import { getInfo } from "./info.js";
+import { clearInfo, getInfo } from "./info.js";
 import { LoginQuery } from "./queries.js";
 
 const User = "jaaguplasn";
@@ -8,6 +8,7 @@ const btn = document
   .querySelector(".search-btn")
   .addEventListener("click", async (event) => {
     event.preventDefault();
+    clearItems()
     let username = document.getElementById("searchInput").value;
     let userId = await LoginQuery(username); //only for seeing if user exists
     if (userId == undefined) {
@@ -38,3 +39,7 @@ const deactivateLoading = () => {
 
   loader.style.visibility = "hidden";
 };
+
+const clearItems = () => {
+  clearInfo()
+}

@@ -15,6 +15,7 @@ export let info = {
 };
 
 export async function getInfo(username, id) {
+
   info.id = id;
   let res = await queryAPI(LevelAndTaskQuery, { login: username, id: info.id });
   for (let i = 0; i < res.data.progress.length; i++) {
@@ -46,4 +47,11 @@ export async function getInfo(username, id) {
     }
   }
   return info;
+}
+
+export function clearInfo() {
+  info.id = null,
+  info.level = null,
+  info.xp = null,
+  info.tasks =[Task]
 }
