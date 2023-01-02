@@ -1,12 +1,6 @@
 import {getInfo } from "./info.js"
 import { LoginQuery } from "./queries.js"
 
-let info = {
-  id: null,
-  level: null,
-  xp: null,
-  tasks: [Task],
-};
 const User = "jaaguplasn"
 
 const btn = document.querySelector('.search-btn')
