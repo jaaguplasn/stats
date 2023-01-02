@@ -1,4 +1,4 @@
-import { info, getInfo } from "./info"
+import { info, getInfo } from "./info.js"
 
 info = await getInfo()
 
