@@ -8,8 +8,10 @@ const btn = document.querySelector('.search-btn')
 
   let userId = await LoginQuery(document.getElementById("searchInput").value);
   if (userId == undefined) {
+    alert(userId)
     console.log("username does not exist")
   } else {
+    alert(userId)
     console.log("do magic")
   }
 })
