@@ -1,5 +1,15 @@
 import {getInfo } from "./info.js"
+import { LoginQuery } from "./queries"
+const User = "jaaguplasn"
 
-let info = await getInfo()
+const SearchForm = document.querySelector('#username')
+SearchForm.addEventListener("submit", async(event) => {
+  console.log(event)
+})
 
-console.log(info)
+
+
+
+//let info = await getInfo()
+
+//console.log(info)
