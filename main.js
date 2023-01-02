@@ -34,7 +34,7 @@ for (let i = 0; i < res.data.progress.length; i++) {
     //console.log(xpData.data.transaction[0].amount);
     //task.name = res.data.progress[i].object.name;
     //task.date = res.data.progress[i].updatedAt
-    let task = new Task(res.data.progress[i].object.name, res.data.progress[i].updatedAt, xpData.data.transaction[0].amount)
+    let task = new Task(res.data.progress[i].object.name, new Date(res.data.progress[i].updatedAt), xpData.data.transaction[0].amount)
     info.tasks.push(task)
     info.xp += xpData.data.transaction[0].amount
 
