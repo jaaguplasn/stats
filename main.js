@@ -14,10 +14,10 @@ const btn = document
     if (userId == undefined) {
       console.log("username does not exist");
     } else {
-      loading();
+      activateLoading();
       let info = await getInfo(username, userId.id);
       console.log(info);
-      notloading();
+      deactivateLoading();
       //insert magic here
     }
   });
@@ -30,12 +30,15 @@ window.addEventListener("load", function () {
 });
 
 //showing load icon
-const loading = () => {
-  let loader = document.getElementsByClassName("loading")
-  loader.setAttribute("visibility", "visible");
-}
-
-const notloading = () => {
-  let loader = document.getElementsByClassName("loading")
-  loader.setAttribute("visibility", "hidden");
-}
+const activateLoading=()=>{
+  let loaders = document.getElementsByClassName("loader")
+  for (i=0; i<loaders.length; i++){
+      loaders[i].setAttribute("visibility", "visible")
+  }
+  }
+  const deactivateLoading=()=>{
+      let loaders = document.getElementsByClassName("loader")
+      for (i=0; i<loaders.length; i++){
+          loaders[i].setAttribute("visibility", "hidden")
+      }
+  }
