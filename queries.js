@@ -14,7 +14,7 @@ export async function LoginQuery(username) {
 `,
     { login: username }
   );
-  return data
+  return data.data.user[0]
 }
 //query level and task with id and loginname
 
