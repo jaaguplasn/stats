@@ -11,6 +11,7 @@ const btn = document.querySelector('.search-btn')
   if (userId == undefined) {
     console.log("username does not exist")
   } else {
+    console.log("username and id are: ", username, " ", userId)
     let info = await getInfo(username, userId)
     console.log(info)
   }
