@@ -12,8 +12,7 @@ const btn = document.querySelector('.search-btn')
     console.log("username does not exist")
   } else {
     let info = await getInfo(username, userId)
+    console.log(info)
   }
 })
 
-
-console.log(info)
