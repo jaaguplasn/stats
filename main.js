@@ -21,7 +21,7 @@ const btn = document.querySelector('.search-btn')
 })
 
 //on page load start magic with default user
-window.addEventListener("Load", function(_) {
+window.addEventListener("load", function() {
   console.log("AUTOCLICKING BUTTON")
   document.querySelector("#searchInput").value = User
   document.querySelector(".search-btn").click()
