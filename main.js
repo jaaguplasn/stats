@@ -1,5 +1,6 @@
-import { clearInfo, getInfo } from "./info.js";
+import { getInfo } from "./info.js";
 import { LoginQuery } from "./queries.js";
+import { clearItems } from "./utils.js"
 
 const User = "jaaguplasn";
 
@@ -40,6 +41,3 @@ const deactivateLoading = () => {
   loader.style.visibility = "hidden";
 };
 
-const clearItems = () => {
-  clearInfo()
-}
