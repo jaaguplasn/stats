@@ -16,7 +16,7 @@ export let info = {
 
 export async function getInfo(username, id) {
   info.id = id;
-  res = await queryAPI(LevelAndTaskQuery, { login: username, id: info.id });
+  let res = await queryAPI(LevelAndTaskQuery, { login: username, id: info.id });
   for (let i = 0; i < res.data.progress.length; i++) {
     //get level
     info.level = res.data.transaction[0].amount;
