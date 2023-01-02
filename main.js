@@ -31,14 +31,14 @@ window.addEventListener("load", function () {
 
 //showing load icon
 const activateLoading=()=>{
-  let loaders = document.getElementsByClassName("loader")
-  for (i=0; i<loaders.length; i++){
-      loaders[i].setAttribute("visibility", "visible")
+  let loader = document.getElementsByClassName("loader")
+  
+      loader.setAttribute("visibility", "visible")
   }
-  }
+  
   const deactivateLoading=()=>{
-      let loaders = document.getElementsByClassName("loader")
-      for (i=0; i<loaders.length; i++){
-          loaders[i].setAttribute("visibility", "hidden")
+      let loader = document.getElementsByClassName("loader")
+      
+          loader.setAttribute("visibility", "hidden")
       }
-  }
+  
