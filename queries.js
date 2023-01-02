@@ -29,7 +29,7 @@ export const LevelAndTaskQuery = `query LevelAndTasks($id: Int, $login: String) 
   }
   progress(
     order_by: {updatedAt: asc}
-    where: {path: {_regex: "div-01/(?!piscine-js-(2|1)/|piscine-go|rust/)"}, user: {login: {_eq: $login}}, isDone: {_eq: true}}
+    where: {path: {_regex: "div-01/(?!piscine-js-2/|piscine-go|rust/)"}, user: {login: {_eq: $login}}, isDone: {_eq: true}}
     offset: 0
   ) {
     object {
