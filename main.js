@@ -16,7 +16,7 @@ const btn = document
       activateLoading();
       let info = await getInfo(username, userId.id);
       console.log(info);
-      deactivateLoading();
+      //deactivateLoading();
       //insert magic here
     }
   });
@@ -31,6 +31,7 @@ window.addEventListener("load", function () {
 //showing load icon
 const activateLoading = () => {
   let loader = document.querySelector(".loader");
+  console.log(loader)
   loader.setAttribute("visibility", "visible");
 };
 
