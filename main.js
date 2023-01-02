@@ -11,7 +11,7 @@ const btn = document
     let username = document.getElementById("searchInput").value;
     let userId = await LoginQuery(username); //only for seeing if user exists
     if (userId == undefined) {
-     alert("username does not exist");
+      alert("username does not exist");
     } else {
       activateLoading();
       let info = await getInfo(username, userId.id);
@@ -31,7 +31,7 @@ window.addEventListener("load", function () {
 //showing load icon
 const activateLoading = () => {
   let loader = document.querySelector(".loader");
-  console.log(loader)
+  console.log(loader);
   loader.style.visibility = "visible";
 };
 
