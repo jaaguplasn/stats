@@ -1,5 +1,5 @@
 import {getInfo } from "./info.js"
-import { LoginQuery } from "./queries"
+import { LoginQuery } from "./queries.js"
 const User = "jaaguplasn"
 
 const SearchForm = document.querySelector('#username')
