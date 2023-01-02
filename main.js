@@ -4,11 +4,10 @@ import { LoginQuery } from "./queries.js"
 const User = "jaaguplasn"
 
 const btn = document.querySelector('.search-btn')
-.addEventListener("click", async(_) => {
-
+.addEventListener("click", async(event) => {
+  event.preventDefault()
   let userId = await LoginQuery(document.getElementById("searchInput").value);
   if (userId == undefined) {
-    alert(userId)
     console.log("username does not exist")
   } else {
     alert("here")
