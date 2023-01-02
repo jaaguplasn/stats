@@ -31,13 +31,13 @@ window.addEventListener("load", function () {
 
 //showing load icon
 const activateLoading=()=>{
-  let loader = document.getElementsByClassName("loader")
+  let loader = document.getElementsByClassName("spinner-frame")
   
       loader.setAttribute("visibility", "visible")
   }
   
   const deactivateLoading=()=>{
-      let loader = document.getElementsByClassName("loader")
+      let loader = document.getElementsByClassName("spinner-frame")
       
           loader.setAttribute("visibility", "hidden")
       }
