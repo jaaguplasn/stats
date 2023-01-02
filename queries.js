@@ -1,5 +1,9 @@
+import { queryAPI } from "./queryAPI.js";
+
 //query id
-export const LoginQuery = `
+export async function LoginQuery(username) {
+  const data = await queryAPI(
+    `
  query login($login: String){
    user(where: { login: { _eq: $login }}
     limit: 1
@@ -7,7 +11,11 @@ export const LoginQuery = `
      id
    }
  }
-`;
+`,
+    { login: username }
+  );
+  return data
+}
 //query level and task with id and loginname
 
 export const LevelAndTaskQuery = `query LevelAndTasks($id: Int, $login: String) {
@@ -30,8 +38,7 @@ export const LevelAndTaskQuery = `query LevelAndTasks($id: Int, $login: String) 
     updatedAt
     path
   }
-}`
-
+}`;
 
 //query  task xp
 export const XpQuery = `query xp($login: String!, $task: String!) {
