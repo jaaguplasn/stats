@@ -15,7 +15,6 @@ const btn = document
     } else {
       activateLoading();
       let info = await getInfo(username, userId.id);
-      console.log(info);
       deactivateLoading();
       //insert magic here
     }
@@ -23,7 +22,6 @@ const btn = document
 
 //on page load start magic with default user
 window.addEventListener("load", function () {
-  console.log("AUTOCLICKING BUTTON");
   document.querySelector("#searchInput").value = User;
   document.querySelector(".search-btn").click();
 });
@@ -31,7 +29,6 @@ window.addEventListener("load", function () {
 //showing load icon
 const activateLoading = () => {
   let loader = document.querySelector(".loader");
-  console.log(loader);
   loader.style.visibility = "visible";
 };
 
