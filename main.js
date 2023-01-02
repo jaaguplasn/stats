@@ -16,12 +16,11 @@ let info = {
 
 let res = await queryAPI(LoginQuery, { login: "jaaguplasn" });
 info.id = res.data.user[0].id;
-res = await queryAPI(LevelQuery, { id: info.id });
-info.level = res.data.transaction[0].amount;
-res = await queryAPI(TaskQuery, { login: "jaaguplasn" });
+res = await queryAPI(LevelAndTaskQuery, { login: "jaaguplasn", id: info.id  });
 for (let i = 0; i < res.data.progress.length; i++) {
-  //get task xp
-
+  //get level
+  info.level = res.data.transaction[0].amount;
+  //get task and xp
   if (res.data.progress[i].object.name == "Piscine Rust 2022") {
     //if its piscine rust 2022 add xp manually
     let task = new Task(res.data.progress[i].object.name, res.data.progress[i].updatedAt, 390000)
