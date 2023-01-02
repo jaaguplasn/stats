@@ -16,7 +16,7 @@ const btn = document
       activateLoading();
       let info = await getInfo(username, userId.id);
       console.log(info);
-      //deactivateLoading();
+      deactivateLoading();
       //insert magic here
     }
   });
@@ -32,11 +32,11 @@ window.addEventListener("load", function () {
 const activateLoading = () => {
   let loader = document.querySelector(".loader");
   console.log(loader)
-  loader.setAttribute("visibility", "visible");
+  loader.style.visibility = "visible";
 };
 
 const deactivateLoading = () => {
   let loader = document.querySelector(".loader");
 
-  loader.setAttribute("visibility", "hidden");
+  loader.style.visibility = "hidden";
 };
