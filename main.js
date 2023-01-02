@@ -11,7 +11,7 @@ const btn = document.querySelector('.search-btn')
     alert(userId)
     console.log("username does not exist")
   } else {
-    alert(userId)
+    alert("here")
     console.log("do magic")
   }
 })
