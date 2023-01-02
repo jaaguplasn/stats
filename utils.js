@@ -1,4 +1,4 @@
 import { clearInfo } from "./info.js"
-const clearItems = () => {
+export const clearItems = () => {
     clearInfo()
   }
