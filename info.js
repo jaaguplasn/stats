@@ -14,10 +14,9 @@ export let info = {
   tasks: [Task],
 };
 
-export async function getInfo() {
-  let res = await queryAPI(LoginQuery, { login: "jaaguplasn" });
-  info.id = res.data.user[0].id;
-  res = await queryAPI(LevelAndTaskQuery, { login: "jaaguplasn", id: info.id });
+export async function getInfo(username, id) {
+  info.id = id;
+  res = await queryAPI(LevelAndTaskQuery, { login: username, id: info.id });
   for (let i = 0; i < res.data.progress.length; i++) {
     //get level
     info.level = res.data.transaction[0].amount;
@@ -33,7 +32,7 @@ export async function getInfo() {
       info.xp += 390000;
     } else {
       let xpData = await queryAPI(XpQuery, {
-        login: "jaaguplasn",
+        login: username,
         task: res.data.progress[i].object.name,
       });
 
