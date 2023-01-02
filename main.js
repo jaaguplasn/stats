@@ -1,6 +1,6 @@
 import { getInfo } from "./info.js";
 import { LoginQuery } from "./queries.js";
-import { loading, notloading } from "./utils.js";
+
 
 const User = "jaaguplasn";
 
@@ -28,3 +28,14 @@ window.addEventListener("load", function () {
   document.querySelector("#searchInput").value = User;
   document.querySelector(".search-btn").click();
 });
+
+//showing load icon
+const loading = () => {
+  let loader = document.getElementsByClassName("loading")
+  loader.setAttribute("visibility", "visible");
+}
+
+const notloading = () => {
+  let loader = document.getElementsByClassName("loading")
+  loader.setAttribute("visibility", "hidden");
+}
