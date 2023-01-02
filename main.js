@@ -32,7 +32,7 @@ window.addEventListener("load", function () {
 //showing load icon
 const activateLoading=()=>{
   let loader = document.getElementsByClassName("spinner-frame")
-  
+    console.log(loader)
       loader.setAttribute("visibility", "visible")
   }
   
