@@ -18,8 +18,33 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(UserInfoBox);
   //Xpinfo
   let XpInfoBox = document.createElement("div");
-  let XpGraph = document.createElement("canvas");
-  XpGraph.id = "XpGraph";
+  let XpGraph = DrawXPChart(UserData);
   XpInfoBox.appendChild(XpGraph);
   InfoBoxes.appendChild(XpInfoBox);
+}
+
+function DrawXPChart(UserData) {
+  XpGraph = document.createElement("canvas");
+  XpGraph.id = "XpGraph";
+  let chart = new Chart(XpGraph, {
+    type: "bar",
+    data: {
+      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      datasets: [
+        {
+          label: "# of Votes",
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+  return XpGraph
 }
