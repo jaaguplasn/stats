@@ -29,7 +29,7 @@ export async function getInfo(username, id) {
       //if its piscine rust 2022 add xp manually
       let task = new Task(
         res.data.progress[i].object.name,
-        res.data.progress[i].updatedAt,
+        new Date(res.data.progress[i].updatedAt),
         390000
       );
       info.tasks.push(task);
@@ -49,8 +49,8 @@ export async function getInfo(username, id) {
       info.xp += xpData.data.transaction[0].amount;
     }
   }
-  info.nextLvlXp = levelNeededXP(info.level + 1);
-  info.lastLvlXp = levelNeededXP(info.level);
+  info.nextLvlXp = levelNeededXP(info.level);
+  info.lastLvlXp = levelNeededXP(info.level - 1);
   return info;
 }
 
