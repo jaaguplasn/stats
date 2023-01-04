@@ -23,8 +23,9 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(XpInfoBox);
 }
 async function DrawXPChart(UserData) {
-  let XpInCurrentLvl = UserData.nextLvlXp - UserData.xp;
   let LevelDifXp = UserData.nextLvlXp - UserData.lastLvlXp;
+  let XpGotten = UserData.nextLvlXp - UserData.xp
+  let XpRemaining = LevelDifXp - XpGotten
   let XpGraph = document.createElement("canvas");
   XpGraph.id = "XpGraph";
   new Chart(XpGraph, {
@@ -33,7 +34,7 @@ async function DrawXPChart(UserData) {
       datasets: [
         {
           label: "xp",
-          data: [XpInCurrentLvl, LevelDifXp],
+          data: [XpGotten, XpRemaining],
           backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
           hoverOffset: 4,
         },
