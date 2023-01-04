@@ -24,8 +24,8 @@ export async function Draw(username, id) {
 }
 async function DrawXPChart(UserData) {
   let LevelDifXp = UserData.nextLvlXp - UserData.lastLvlXp;
-  let XpGotten = UserData.nextLvlXp - UserData.xp
-  let XpRemaining = LevelDifXp - XpGotten
+  let XpRemaining = UserData.nextLvlXp - UserData.xp
+  let XpGotten = LevelDifXp - XpGotten
   let XpGraph = document.createElement("canvas");
   XpGraph.id = "XpGraph";
   new Chart(XpGraph, {
