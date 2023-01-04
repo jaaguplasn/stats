@@ -22,28 +22,23 @@ export async function Draw(username, id) {
   XpInfoBox.appendChild(XpGraph);
   InfoBoxes.appendChild(XpInfoBox);
 }
-
 function DrawXPChart(UserData) {
+  let from = UserData.nextLvlXp - UserData.xp;
+  let to = UserData.nextLvlXp - UserData.lastLvlXp;
   let XpGraph = document.createElement("canvas");
   XpGraph.id = "XpGraph";
   new Chart(XpGraph, {
     type: "doughnut",
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: "xp",
       datasets: [
         {
-          label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1,
+          label: "xp",
+          data: [from, to],
+          backgroundColor: ["rgb(207, 205, 202)", "rgb(50, 214, 21)"],
+          hoverOffset: 4,
         },
       ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
     },
   });
   return XpGraph;
