@@ -24,9 +24,9 @@ export async function Draw(username, id) {
 }
 
 function DrawXPChart(UserData) {
-  XpGraph = document.createElement("canvas");
+  let XpGraph = document.createElement("canvas");
   XpGraph.id = "XpGraph";
-  let chart = new Chart(XpGraph, {
+  new Chart(XpGraph, {
     type: "bar",
     data: {
       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -46,5 +46,5 @@ function DrawXPChart(UserData) {
       },
     },
   });
-  return XpGraph
+  return XpGraph;
 }
