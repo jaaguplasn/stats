@@ -23,22 +23,25 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(XpInfoBox);
 }
 
-
 function DrawXPChart(UserData) {
-    let svg = document.createElement("svg");
-    svg.setAttribute("viewBox", "0 0 36 36")
-    let path = document.createElement("path");
-    path.setAttribute("d", "M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
-    path.setAttribute("fill", "none")
-    path.setAttribute("stroke", "#444")
-    path.setAttribute("stroke-width","1")
-    let from = UserData.nextLvlXp - UserData.xp
-    let to = UserData.nextLvlXp - UserData.lastLvlXp
-    path.setAttribute("stroke-dasharray",`${from}, ${to}`)
-    svg.appendChild(path)
-    return svg
+  let svg = document.createElement("svg");
+  svg.setAttribute("viewBox", "0 0 36 36");
+  svg.classList.add = "circular-chart";
+  let path = document.createElement("path");
+  path.setAttribute(
+    "d",
+    "M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+  );
+  path.setAttribute("fill", "none");
+  path.classList.add = "circle";
+  path.setAttribute("stroke", "#444");
+  path.setAttribute("stroke-width", "1");
+  let from = UserData.nextLvlXp - UserData.xp;
+  let to = UserData.nextLvlXp - UserData.lastLvlXp;
+  path.setAttribute("stroke-dasharray", `${from}, ${to}`);
+  svg.appendChild(path);
+  return svg;
 }
-
 
 // function DrawXPChart(UserData) {
 //   let XpGraph = document.createElement("canvas");
