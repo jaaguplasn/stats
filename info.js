@@ -12,6 +12,7 @@ export let info = {
   level: null,
   xp: null,
   xpNeeded: null,
+  lastLvlXp : null,
   tasks: [Task],
 };
 
@@ -48,6 +49,7 @@ export async function getInfo(username, id) {
     }
   }
   info.xpNeeded = levelNeededXP(info.level);
+  info.lastLvlXp = levelNeededXP(info.level-1)
   return info;
 }
 
