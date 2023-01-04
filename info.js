@@ -1,7 +1,7 @@
 import { queryAPI } from "./queryAPI.js";
-import { LoginQuery, LevelAndTaskQuery, XpQuery } from "./queries.js";
+import { LevelAndTaskQuery, XpQuery } from "./queries.js";
 
- class Task {
+class Task {
   constructor(name, date, xp) {
     (this.name = name), (this.date = date), (this.xp = xp);
   }
@@ -12,12 +12,11 @@ export let info = {
   level: null,
   xp: null,
   nextLvlXp: null,
-  lastLvlXp : null,
+  lastLvlXp: null,
   tasks: [Task],
 };
 
 export async function getInfo(username, id) {
-
   info.id = id;
   let res = await queryAPI(LevelAndTaskQuery, { login: username, id: info.id });
   for (let i = 0; i < res.data.progress.length; i++) {
@@ -48,19 +47,19 @@ export async function getInfo(username, id) {
       info.xp += xpData.data.transaction[0].amount;
     }
   }
-  info.nextLvlXp = levelNeededXP(info.level+1);
-  info.lastLvlXp = levelNeededXP(info.level)
+  info.nextLvlXp = levelNeededXP(info.level + 1);
+  info.lastLvlXp = levelNeededXP(info.level);
   return info;
 }
 
 export function clearInfo() {
-  info.id = null,
-  info.level = null,
-  info.xp = null,
-  info.tasks =[Task]
+  (info.id = null),
+    (info.level = null),
+    (info.xp = null),
+    (info.tasks = [Task]);
 }
 
 // Returns the amount of XP needed for any given level
 function levelNeededXP(level) {
-  return Math.round(level * (176 + 3 * level * (47 + 11 * level)))
+  return Math.round(level * (176 + 3 * level * (47 + 11 * level)));
 }

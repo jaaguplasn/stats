@@ -1,6 +1,6 @@
-import { getInfo } from "./info.js";
+import { Draw } from "./draw.js";
 import { LoginQuery } from "./queries.js";
-import { clearItems } from "./utils.js"
+import { clearItems } from "./utils.js";
 
 const User = "jaaguplasn";
 
@@ -9,17 +9,15 @@ const btn = document
   .querySelector(".search-btn")
   .addEventListener("click", async (event) => {
     event.preventDefault();
-    clearItems()
+    clearItems();
     let username = document.getElementById("searchInput").value;
     let userId = await LoginQuery(username); //only for seeing if user exists
     if (userId == undefined) {
       alert("username does not exist");
     } else {
       activateLoading();
-      let info = await getInfo(username, userId.id);
+      await Draw(username, userId.id);
       deactivateLoading();
-      //insert magic here
-      console.log(info);
     }
   });
 
@@ -40,4 +38,3 @@ const deactivateLoading = () => {
 
   loader.style.visibility = "hidden";
 };
-

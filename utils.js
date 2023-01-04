@@ -1,4 +1,4 @@
-import { clearInfo } from "./info.js"
+import { clearInfo } from "./info.js";
 export const clearItems = () => {
-    clearInfo()
-  }
+  clearInfo();
+};
