@@ -18,8 +18,8 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(UserInfoBox);
   //Xpinfo
   let XpInfoBox = document.createElement("div");
-  let XpGraph = await DrawXPChart(UserData);
-  XpInfoBox.appendChild(XpGraph);
+  //let XpGraph = await DrawXPChart(UserData);
+  //XpInfoBox.appendChild(XpGraph);
   //InfoBoxes.appendChild(XpInfoBox);
 }
 async function DrawXPChart(UserData) {
