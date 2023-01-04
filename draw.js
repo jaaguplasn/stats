@@ -30,7 +30,7 @@ function DrawXPChart(UserData) {
   let path = document.createElement("path");
   path.setAttribute(
     "d",
-    "M18 2.0845 \na 15.9155 15.9155 0 0 1 0 31.831 \na 15.9155 15.9155 0 0 1 0 -31.831"
+    "M18 2.0845 \n  a 15.9155 15.9155 0 0 1 0 31.831 \n a 15.9155 15.9155 0 0 1 0 -31.831"
   );
   path.setAttribute("fill", "none");
   path.className += "circle";
