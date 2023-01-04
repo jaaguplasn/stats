@@ -18,7 +18,7 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(UserInfoBox);
   //Xpinfo
   let XpInfoBox = document.createElement("div");
-  XpGraph = document.createElement("canvas");
+  XpGraph = document.createElement("CANVAS");
   XpGraph.id = "XpGraph";
   XpInfoBox.appendChild(XpGraph);
   InfoBoxes.appendChild(XpInfoBox);
