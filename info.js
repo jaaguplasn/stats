@@ -11,6 +11,7 @@ export let info = {
   id: null,
   level: null,
   xp: null,
+  xpNeeded: null,
   tasks: [Task],
 };
 
@@ -46,6 +47,7 @@ export async function getInfo(username, id) {
       info.xp += xpData.data.transaction[0].amount;
     }
   }
+  info.levelNeededXP = levelNeededXP(info.level);
   return info;
 }
 
@@ -54,4 +56,9 @@ export function clearInfo() {
   info.level = null,
   info.xp = null,
   info.tasks =[Task]
+}
+
+// Returns the amount of XP needed for any given level
+function levelNeededXP(level) {
+  return Math.round(level * (176 + 3 * level * (47 + 11 * level)))
 }
