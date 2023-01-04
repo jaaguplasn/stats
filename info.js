@@ -11,7 +11,7 @@ export let info = {
   id: null,
   level: null,
   xp: null,
-  xpNeeded: null,
+  xpNeededNextLvl: null,
   lastLvlXp : null,
   tasks: [Task],
 };
@@ -48,7 +48,7 @@ export async function getInfo(username, id) {
       info.xp += xpData.data.transaction[0].amount;
     }
   }
-  info.xpNeeded = levelNeededXP(info.level);
+  info.xpNeededNextLvl = levelNeededXP(info.level+1);
   info.lastLvlXp = levelNeededXP(info.level-1)
   return info;
 }
