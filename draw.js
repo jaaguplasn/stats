@@ -26,7 +26,7 @@ export async function Draw(username, id) {
 
 function DrawXPChart(UserData) {
     let svg = document.createElement("svg");
-    svg.setAttribute("viewBox", "0 00 36 36")
+    svg.setAttribute("viewBox", "0 0 36 36")
     let path = document.createElement("path");
     path.setAttribute("d", "M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831")
     path.setAttribute("fill", "none")
