@@ -18,11 +18,11 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(UserInfoBox);
   //Xpinfo
   let XpInfoBox = document.createElement("div");
-  let XpGraph = DrawXPChart(UserData);
+  let XpGraph = await DrawXPChart(UserData);
   XpInfoBox.appendChild(XpGraph);
   InfoBoxes.appendChild(XpInfoBox);
 }
-function DrawXPChart(UserData) {
+async function DrawXPChart(UserData) {
   let from = UserData.nextLvlXp - UserData.xp;
   let to = UserData.nextLvlXp - UserData.lastLvlXp;
   let XpGraph = document.createElement("canvas");
@@ -30,7 +30,6 @@ function DrawXPChart(UserData) {
   new Chart(XpGraph, {
     type: "doughnut",
     data: {
-      labels: "xp",
       datasets: [
         {
           label: "xp",
