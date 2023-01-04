@@ -4,7 +4,8 @@ export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
-  let UserInfoBox = document.createElement("div");//Userinfo
+  //Userinfo
+  let UserInfoBox = document.createElement("div");
   UserInfoBox.innerText =
     "Username: " +
     UserData.username +
@@ -19,5 +20,6 @@ export async function Draw(username, id) {
   let XpInfoBox = document.createElement("div");
   XpGraph = document.createElement("canvas");
   XpGraph.id = "XpGraph";
-  InfoBoxes.appendChild(XpGraph);
+  XpInfoBox.appendChild(XpGraph);
+  InfoBoxes.appendChild(XpInfoBox);
 }
