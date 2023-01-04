@@ -47,7 +47,7 @@ export async function getInfo(username, id) {
       info.xp += xpData.data.transaction[0].amount;
     }
   }
-  info.levelNeededXP = levelNeededXP(info.level);
+  info.xpNeeded = levelNeededXP(info.level);
   return info;
 }
 
