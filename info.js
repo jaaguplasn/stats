@@ -14,7 +14,7 @@ export let info = {
   xp: null,
   xpTilNextLvl: null,
   xpTilCurrentLvl: null,
-  Audits: {},
+  upAudits: {},
   tasks: [Task],
 };
 
@@ -57,10 +57,10 @@ export async function getInfo(username, id) {
   let audits = await queryAPI(AuditQuery, { id: info.id });
   audits.forEach((audit) => {
     if (audit.type === "up") {
-      info.Audits.push(audit);
+      info.upAudits.push(audit);
     }
   })
-  console.log(info.Audits.length);
+  console.log(info.upAudits.length);
 
   return info;
 }
