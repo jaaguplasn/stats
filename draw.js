@@ -23,8 +23,8 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(XpInfoBox);
 }
 async function DrawXPChart(UserData) {
-    let LevelDifXp = UserData.nextLvlXp - UserData.lastLvlXp;
-    let XpRemaining = UserData.nextLvlXp - UserData.xp;
+    let LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrent;
+    let XpRemaining = UserData.xpTilNextLvl - UserData.xp;
     let XpGotten = LevelDifXp - XpRemaining;
     let XpGraph = document.createElement("canvas");
     XpGraph.id = "XpGraph";
