@@ -103,12 +103,12 @@ async function GetAudit(UserData) {
         AuditInfo.downAudit.push(audit);
         AuditInfo.downRatio += audit.amount
       } else {
-        xpArray.push(audit.amount)
+        AuditInfo.xpArray.push(audit.amount)
       }
     });
     offset += 50
   }
-  AuditInfo.xpp = xpArray.reduce((v1, v2) => { v1 + v2})
+  AuditInfo.xpp = AuditInfo.xpArray.reduce((v1, v2) => { v1 + v2})
   AuditInfo.auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
   return AuditInfo
 }
