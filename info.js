@@ -99,8 +99,8 @@ async function GetAudit(UserData) {
     });
     offset += 50
   }
-  const upRatio = AuditInfo.upAudit.amount.reduce((v1, v2) => v1 + v2, 0);
-  const downRatio = AuditInfo.downAudit.amount.reduce((v1, v2) => v1 + v2, 0);
+  const upRatio = AuditInfo.upAudit.reduce((audit1, audit2) => audit1.amount + audit2.amount, 0)
+  const downRatio = AuditInfo.downAudit.reduce((audit1, audit2) => audit1.amount + audit2.amount, 0)
   const auditRatio = (upRatio / downRatio).toFixed(2);
   console.log(upRatio)
   console.log(downRatio)
