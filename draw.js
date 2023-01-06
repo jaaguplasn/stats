@@ -14,7 +14,10 @@ export async function Draw(username, id) {
     UserData.id +
     "\n" +
     "Level: " +
-    UserData.level;
+    UserData.level +
+    "\n" +
+    "Audit Ratio: " +
+    UserData.auditInfo.auditRatio;
   InfoBoxes.appendChild(UserInfoBox);
   //Xpinfo
   if (UserData.username === "jaaguplasn") {
