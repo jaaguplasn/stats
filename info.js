@@ -104,7 +104,7 @@ async function GetAudit(UserData) {
     offset += 50
   }
   const auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
-  console.log(upRatio)
-  console.log(downRatio)
+  console.log(AuditInfo.upRatio)
+  console.log(AuditInfo.downRatio)
   console.log(auditRatio)
 }
