@@ -1,5 +1,5 @@
 import { queryAPI } from "./queryAPI.js";
-import { LevelAndTaskQuery, XpQuery, Audits, AuditQuery } from "./queries.js";
+import { LevelAndTaskQuery, XpQuery, AuditQuery } from "./queries.js";
 
 class Task {
   constructor(name, date, xp) {
