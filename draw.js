@@ -18,28 +18,28 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(UserInfoBox);
   //Xpinfo
   let XpInfoBox = document.createElement("div");
-  //let XpGraph = await DrawXPChart(UserData);
-  //XpInfoBox.appendChild(XpGraph);
-  //InfoBoxes.appendChild(XpInfoBox);
+  let XpGraph = await DrawXPChart(UserData);
+  XpInfoBox.appendChild(XpGraph);
+  InfoBoxes.appendChild(XpInfoBox);
 }
 async function DrawXPChart(UserData) {
-  //   let LevelDifXp = UserData.nextLvlXp - UserData.lastLvlXp;
-  //   let XpRemaining = UserData.nextLvlXp - UserData.xp;
-  //   let XpGotten = LevelDifXp - XpRemaining;
-  //   let XpGraph = document.createElement("canvas");
-  //   XpGraph.id = "XpGraph";
-  //   new Chart(XpGraph, {
-  //     type: "doughnut",
-  //     data: {
-  //       datasets: [
-  //         {
-  //           label: "xp",
-  //           data: [XpGotten, XpRemaining],
-  //           backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
-  //           hoverOffset: 4,
-  //         },
-  //       ],
-  //     },
-  //   });
-  //   return XpGraph;
+    let LevelDifXp = UserData.nextLvlXp - UserData.lastLvlXp;
+    let XpRemaining = UserData.nextLvlXp - UserData.xp;
+    let XpGotten = LevelDifXp - XpRemaining;
+    let XpGraph = document.createElement("canvas");
+    XpGraph.id = "XpGraph";
+    new Chart(XpGraph, {
+      type: "doughnut",
+      data: {
+        datasets: [
+          {
+            label: "xp",
+            data: [XpGotten, XpRemaining],
+            backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
+            hoverOffset: 4,
+          },
+        ],
+      },
+    });
+    return XpGraph;
 }
