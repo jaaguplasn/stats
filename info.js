@@ -28,47 +28,11 @@ export async function getInfo(username, id) {
   return info;
 }
 
-async function GetAudit(UserData) {
-  let AuditInfo = {
-    upAudit: [],
-    upRatio: null,
-    downAudit: [],
-    downRatio: null,
-    auditRatio: null,
-  };
-
-  let offset = 0;
-  let loop = true;
-  while (loop) {
-    const data = await queryAPI(AuditQuery, {
-      id: UserData.id,
-      offset: offset,
-    });
-    if (data.data.transaction.length === 0) {
-      loop = false;
-      break;
-    }
-    data.data.transaction.forEach((audit) => {
-      if (audit.type === "up") {
-        AuditInfo.upAudit.push(audit);
-        AuditInfo.upRatio += audit.amount;
-      } else if (audit.type === "down") {
-        AuditInfo.downAudit.push(audit);
-        AuditInfo.downRatio += audit.amount;
-      }
-    });
-    offset += 50;
-  }
-
-  AuditInfo.auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
-  return AuditInfo;
-}
-
 async function GetTaskandLevel(UserData) {
   let offset = 0;
   let loop = true;
   while (loop) {
-    console.log("LOOP")
+    console.log("LOOP");
     const data = await queryAPI(LevelAndTaskQuery, {
       login: UserData.username,
       id: UserData.id,
@@ -115,11 +79,48 @@ function levelNeededXP(level) {
   return Math.round(level * (176 + 3 * level * (47 + 11 * level)));
 }
 
+async function GetAudit(UserData) {
+  let AuditInfo = {
+    upAudit: [],
+    upRatio: null,
+    downAudit: [],
+    downRatio: null,
+    auditRatio: null,
+  };
+
+  let offset = 0;
+  let loop = true;
+  while (loop) {
+    const data = await queryAPI(AuditQuery, {
+      id: UserData.id,
+      offset: offset,
+    });
+    if (data.data.transaction.length === 0) {
+      loop = false;
+      break;
+    }
+    data.data.transaction.forEach((audit) => {
+      if (audit.type === "up") {
+        AuditInfo.upAudit.push(audit);
+        AuditInfo.upRatio += audit.amount;
+      } else if (audit.type === "down") {
+        AuditInfo.downAudit.push(audit);
+        AuditInfo.downRatio += audit.amount;
+      }
+    });
+    offset += 50;
+  }
+
+  AuditInfo.auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
+  return AuditInfo;
+}
+
 export function clearInfo() {
   (info.id = null),
     (info.level = null),
     (info.xp = null),
     (info.xpTilNextLvl = null),
     (info.xpTilCurrentLvl = null),
-    (info.tasks = [Task]);
+    (info.tasks = [Task]),
+    (info.auditInfo = null);
 }
