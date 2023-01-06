@@ -80,7 +80,7 @@ async function GetAudit(UserData) {
     downAudit: [],
     downRatio: null,
     auditRatio : null,
-    xpArray: null,
+    xpArray: [],
     xpp: null,
   };
 
