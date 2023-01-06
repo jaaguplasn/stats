@@ -74,7 +74,7 @@ async function GetTaskandLevel(UserData) {
       id: UserData.id,
       offset: offset,
     });
-    if (data.data.progress[0].length === 0) {
+    if (data.data.progress.length === 0) {
       loop = false;
       break;
     }
