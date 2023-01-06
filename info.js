@@ -76,7 +76,9 @@ function levelNeededXP(level) {
 async function GetAudit(UserData) {
   let AuditInfo = {
     upAudit: [],
+    upRatio: null,
     downAudit: [],
+    downRatio: null
   };
 
   let offset = 0;
@@ -93,15 +95,15 @@ async function GetAudit(UserData) {
     data.data.transaction.forEach((audit) => {
       if (audit.type === "up") {
         AuditInfo.upAudit.push(audit);
+        AuditInfo.upRatio += audit.amount
       } else if (audit.type === "down") {
         AuditInfo.downAudit.push(audit);
+        AuditInfo.downRatio += audit.amount
       }
     });
     offset += 50
   }
-  const upRatio = AuditInfo.upAudit.reduce((audit1, audit2) => {console.log(audit1.amount + "///////////////////" +  audit2.amount)}, 0)
-  const downRatio = AuditInfo.downAudit.reduce((audit1, audit2) => audit1.amount + audit2.amount, 0)
-  const auditRatio = (upRatio / downRatio).toFixed(2);
+  const auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
   console.log(upRatio)
   console.log(downRatio)
   console.log(auditRatio)
