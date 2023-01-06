@@ -18,7 +18,7 @@ export async function LoginQuery(username) {
 }
 //query level and task with id and loginname
 
-export const LevelAndTaskQuery = `query LevelAndTasks($id: Int, $login: String) {
+export const LevelAndTaskQuery = `query LevelAndTasks($id: Int, $login: String, $offset: Int) {
   transaction(
     where: {userId: {_eq: $id}, type: {_eq: "level"}}
     limit: 1
@@ -30,7 +30,7 @@ export const LevelAndTaskQuery = `query LevelAndTasks($id: Int, $login: String) 
   progress(
     order_by: {updatedAt: asc}
     where: {path: {_regex: "div-01/(?!(piscine-js|piscine-js-2)/|piscine-go|rust/)"}, user: {login: {_eq: $login}}, isDone: {_eq: true}}
-    offset: 0
+    offset: $offset
   ) {
     object {
       name
