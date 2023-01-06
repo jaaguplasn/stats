@@ -55,7 +55,7 @@ export async function getInfo(username, id) {
 
   //audit
   let audits = await queryAPI(AuditQuery, { id: info.id });
-  audits.forEach((audit) => {
+  audits.data.transaction.forEach((audit) => {
     if (audit.type === "up") {
       info.upAudits.push(audit);
     }
