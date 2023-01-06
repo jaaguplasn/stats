@@ -17,10 +17,13 @@ export async function Draw(username, id) {
     UserData.level;
   InfoBoxes.appendChild(UserInfoBox);
   //Xpinfo
-  let XpInfoBox = document.createElement("div");
-  let XpGraph = await DrawXPChart(UserData);
-  XpInfoBox.appendChild(XpGraph);
-  InfoBoxes.appendChild(XpInfoBox);
+  if (UserData.username === "jaaguplasn") {
+    // idk what but it doesn't work correctly cuz imo xp forumla?
+    let XpInfoBox = document.createElement("div");
+    let XpGraph = await DrawXPChart(UserData);
+    XpInfoBox.appendChild(XpGraph);
+    InfoBoxes.appendChild(XpInfoBox);
+  }
 }
 async function DrawXPChart(UserData) {
   let LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
