@@ -70,7 +70,7 @@ async function GetTaskandLevel(UserData) {
   while (loop) {
     console.log("LOOP")
     const data = await queryAPI(LevelAndTaskQuery, {
-      login: username,
+      login: UserData.username,
       id: UserData.id,
       offset: offset,
     });
@@ -90,7 +90,7 @@ async function GetTaskandLevel(UserData) {
         UserData.xp += 390000;
       } else {
         let xpData = await queryAPI(XpQuery, {
-          login: username,
+          login: UserData.username,
           task: res.data.progress[i].object.name,
         });
 
