@@ -56,11 +56,11 @@ export async function getInfo(username, id) {
   //audit
   let audits = await queryAPI(AuditQuery, { id: info.id });
   audits.data.transaction.forEach((audit) => {
+    console.log(audit);
     if (audit.type === "up") {
       info.upAudits.push(audit);
     }
-  })
-  console.log(info.upAudits.length);
+  });
 
   return info;
 }
