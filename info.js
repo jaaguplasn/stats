@@ -32,7 +32,6 @@ async function GetTaskandLevel(UserData) {
   let offset = 0;
   let loop = true;
   while (loop) {
-    console.log("LOOP");
     const data = await queryAPI(LevelAndTaskQuery, {
       login: UserData.username,
       id: UserData.id,
