@@ -49,14 +49,12 @@ export async function getInfo(username, id) {
       info.xp += xpData.data.transaction[0].amount;
     }
   }
-  info.xpTilNextLvl = levelNeededXP(info.level+1);
+  info.xpTilNextLvl = levelNeededXP(info.level + 1);
   info.xpTilCurrentLvl = levelNeededXP(info.level);
 
-
   //audit
-  let audits = await queryAPI(Audits, info.id)
+  let audits = await queryAPI(Audits, { id: info.id });
   console.log(audits);
-
 
   return info;
 }
