@@ -41,5 +41,7 @@ async function DrawXPChart(UserData) {
         ],
       },
     });
+    console.log("hei")
     return XpGraph;
+
 }
