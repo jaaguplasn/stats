@@ -1,5 +1,5 @@
 import { queryAPI } from "./queryAPI.js";
-import { LevelAndTaskQuery, XpQuery } from "./queries.js";
+import { LevelAndTaskQuery, XpQuery, Audits } from "./queries.js";
 
 class Task {
   constructor(name, date, xp) {
@@ -51,6 +51,13 @@ export async function getInfo(username, id) {
   }
   info.xpTilNextLvl = levelNeededXP(info.level+1);
   info.xpTilCurrentLvl = levelNeededXP(info.level);
+
+
+  //audit
+  let audits = await queryAPI(Audits, info.id)
+  console.log(audits);
+
+
   return info;
 }
 
