@@ -55,7 +55,6 @@ export const AuditQuery = `query audits($id: Int, $offset: Int) {
   transaction(
     where: {userId: {_eq: $id}, type: {_in: [up, down]}}
     offset: $offset
-    order_by: {amount: desc}
   ) {
     type
     amount

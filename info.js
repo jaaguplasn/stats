@@ -92,9 +92,9 @@ async function GetAudit(UserData) {
     }
     data.data.transaction.forEach((audit) => {
       if (audit.type === "up") {
-        AuditInfo.upAudit.push(audit);
+        AuditInfo.upAudit.push(audit.amount);
       } else if (audit.type === "down") {
-        AuditInfo.downAudit.push(audit);
+        AuditInfo.downAudit.push(audit.amount);
       }
     });
     offset += 50
