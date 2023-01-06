@@ -51,7 +51,7 @@ export const XpQuery = `query xp($login: String!, $task: String!) {
   }
 }`;
 
-export const Audits = `query audits($id: Int) {
+export const AuditQuery = `query audits($id: Int) {
   transaction(
     where: {userId: {_eq: $id}, type: {_in: [up, down]}}
     offset: 1
@@ -61,4 +61,4 @@ export const Audits = `query audits($id: Int) {
     amount
     createdAt
   }
-}`
+}`;
