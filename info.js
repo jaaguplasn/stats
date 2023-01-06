@@ -55,7 +55,7 @@ export async function getInfo(username, id) {
 
   //audit
   info.auditInfo = await GetAudit(info)
-  
+
   return info;
 }
 
@@ -79,7 +79,9 @@ async function GetAudit(UserData) {
     upRatio: null,
     downAudit: [],
     downRatio: null,
-    auditRatio : null
+    auditRatio : null,
+    xpArray: null,
+    xp: null,
   };
 
   let offset = 0;
@@ -100,10 +102,13 @@ async function GetAudit(UserData) {
       } else if (audit.type === "down") {
         AuditInfo.downAudit.push(audit);
         AuditInfo.downRatio += audit.amount
+      } else {
+        xpArray.push(audit.amount)
       }
     });
     offset += 50
   }
+  AuditInfo.xp = xpArray.reduce((v2, v2) => { v1 + v2})
   AuditInfo.auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
   return AuditInfo
 }

@@ -53,7 +53,7 @@ export const XpQuery = `query xp($login: String!, $task: String!) {
 
 export const AuditQuery = `query audits($id: Int, $offset: Int) {
   transaction(
-    where: {userId: {_eq: $id}, type: {_in: [up, down]}}
+    where: {userId: {_eq: $id}, type: {_in: [up, down, xp]}}
     offset: $offset
   ) {
     type
