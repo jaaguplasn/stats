@@ -44,3 +44,8 @@ async function DrawXPChart(UserData) {
     return XpGraph;
 
 }
+
+export function clearDivs() {
+  let InfoBoxes = document.getElementById("infoboxes");
+  infoBoxes.innerHTML = "";
+}
