@@ -86,7 +86,7 @@ async function GetTaskandLevel(UserData) {
           new Date(data.data.progress[i].updatedAt),
           390000
         );
-        UserData.task.push(task);
+        UserData.tasks.push(task);
         UserData.xp += 390000;
       } else {
         let xpData = await queryAPI(XpQuery, {
