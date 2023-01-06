@@ -54,7 +54,7 @@ export async function getInfo(username, id) {
   info.xpTilCurrentLvl = levelNeededXP(info.level);
 
   //audit
-  GetAudit(info)
+  await GetAudit(info)
 
   return info;
 }
