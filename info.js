@@ -92,15 +92,15 @@ async function GetAudit(UserData) {
     }
     data.data.transaction.forEach((audit) => {
       if (audit.type === "up") {
-        AuditInfo.upAudit.push(audit.amount);
+        AuditInfo.upAudit.push(audit);
       } else if (audit.type === "down") {
-        AuditInfo.downAudit.push(audit.amount);
+        AuditInfo.downAudit.push(audit);
       }
     });
     offset += 50
   }
-  const upRatio = AuditInfo.upAudit.reduce((v1, v2) => v1 + v2, 0);
-  const downRatio = AuditInfo.downAudit.reduce((v1, v2) => v1 + v2, 0);
+  const upRatio = AuditInfo.upAudit.amount.reduce((v1, v2) => v1 + v2, 0);
+  const downRatio = AuditInfo.downAudit.amount.reduce((v1, v2) => v1 + v2, 0);
   const auditRatio = (upRatio / downRatio).toFixed(2);
   console.log(upRatio)
   console.log(downRatio)
