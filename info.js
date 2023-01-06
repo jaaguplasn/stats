@@ -108,7 +108,7 @@ async function GetAudit(UserData) {
     });
     offset += 50
   }
-  AuditInfo.xpp = AuditInfo.xpArray.reduce((v1, v2) => { v1 + v2})
+  AuditInfo.xpp = AuditInfo.xpArray.reduce((v1, v2) => v1 + v2);
   AuditInfo.auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
   return AuditInfo
 }
