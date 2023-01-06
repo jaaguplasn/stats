@@ -54,13 +54,7 @@ export async function getInfo(username, id) {
   info.xpTilCurrentLvl = levelNeededXP(info.level);
 
   //audit
-  let audits = await queryAPI(AuditQuery, { id: info.id });
-  audits.data.transaction.forEach((audit) => {
-    console.log(audit);
-    if (audit.type === "up") {
-      info.upAudits.push(audit);
-    }
-  });
+  GetAudit(info)
 
   return info;
 }
@@ -77,4 +71,32 @@ export function clearInfo() {
 // Returns the amount of XP needed for any given level
 function levelNeededXP(level) {
   return Math.round(level * (176 + 3 * level * (47 + 11 * level)));
+}
+
+async function GetAudit(UserData) {
+  let AuditInfo = {
+    upAudit: [],
+    downAudit: [],
+  };
+  let offset = 0;
+  let loop = true;
+  while (loop) {
+    const data = await queryAPI(AuditQuery, {
+      id: UserData.id,
+      offset: offset,
+    });
+    if (data.data.transaction.length === 0) {
+      loop = false;
+      break;
+    }
+    data.data.transaction.forEach((audit) => {
+      if (audit.type === "up") {
+        AuditInfo.upAudit.push(audit);
+      } else if (audit.type === "down") {
+        AuditInfo.downAudit.push(audit);
+      }
+    });
+    offset += 50
+  }
+  console.log(AuditInfo)
 }
