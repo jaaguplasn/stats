@@ -101,7 +101,7 @@ async function GetAudit(UserData) {
   }
   const upRatio = AuditInfo.upAudit.reduce((v1, v2) => v1 + v2, 0);
   const downRatio = AuditInfo.downAudit.reduce((v1, v2) => v1 + v2, 0);
-  const auditRatio = upRatio / downRatio;
+  const auditRatio = (upRatio / downRatio).toFixed(2);
   console.log(AuditInfo)
   console.log(auditRatio)
 }
