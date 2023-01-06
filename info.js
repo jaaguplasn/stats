@@ -14,7 +14,7 @@ export let info = {
   xp: null,
   xpTilNextLvl: null,
   xpTilCurrentLvl: null,
-  upAudits: [],
+  auditInfo: null,
   tasks: [Task],
 };
 
@@ -54,8 +54,8 @@ export async function getInfo(username, id) {
   info.xpTilCurrentLvl = levelNeededXP(info.level);
 
   //audit
-  await GetAudit(info)
-
+  info.auditInfo = await GetAudit(info)
+  
   return info;
 }
 
@@ -78,7 +78,8 @@ async function GetAudit(UserData) {
     upAudit: [],
     upRatio: null,
     downAudit: [],
-    downRatio: null
+    downRatio: null,
+    auditRatio : null
   };
 
   let offset = 0;
@@ -103,8 +104,6 @@ async function GetAudit(UserData) {
     });
     offset += 50
   }
-  const auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
-  console.log(AuditInfo.upRatio)
-  console.log(AuditInfo.downRatio)
-  console.log(auditRatio)
+  AuditInfo.auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
+  return AuditInfo
 }
