@@ -81,7 +81,7 @@ async function GetAudit(UserData) {
     downRatio: null,
     auditRatio : null,
     xpArray: null,
-    xp: null,
+    xpp: null,
   };
 
   let offset = 0;
@@ -108,7 +108,7 @@ async function GetAudit(UserData) {
     });
     offset += 50
   }
-  AuditInfo.xp = xpArray.reduce((v2, v2) => { v1 + v2})
+  AuditInfo.xpp = xpArray.reduce((v2, v2) => { v1 + v2})
   AuditInfo.auditRatio = (AuditInfo.upRatio / AuditInfo.downRatio).toFixed(2);
   return AuditInfo
 }
