@@ -14,7 +14,7 @@ export let info = {
   xp: null,
   xpTilNextLvl: null,
   xpTilCurrentLvl: null,
-  upAudits: {},
+  upAudits: [],
   tasks: [Task],
 };
 
