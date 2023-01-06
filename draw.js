@@ -23,29 +23,28 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(XpInfoBox);
 }
 async function DrawXPChart(UserData) {
-    let LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
-    let XpRemaining = UserData.xpTilNextLvl - UserData.xp;
-    let XpGotten = LevelDifXp - XpRemaining;
-    let XpGraph = document.createElement("canvas");
-    XpGraph.id = "XpGraph";
-    new Chart(XpGraph, {
-      type: "doughnut",
-      data: {
-        datasets: [
-          {
-            label: "xp",
-            data: [XpGotten, XpRemaining],
-            backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
-            hoverOffset: 4,
-          },
-        ],
-      },
-    });
-    return XpGraph;
-
+  let LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
+  let XpRemaining = UserData.xpTilNextLvl - UserData.xp;
+  let XpGotten = LevelDifXp - XpRemaining;
+  let XpGraph = document.createElement("canvas");
+  XpGraph.id = "XpGraph";
+  new Chart(XpGraph, {
+    type: "doughnut",
+    data: {
+      datasets: [
+        {
+          label: "xp",
+          data: [XpGotten, XpRemaining],
+          backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
+          hoverOffset: 4,
+        },
+      ],
+    },
+  });
+  return XpGraph;
 }
 
 export function clearDivs() {
-  let InfoBoxes = document.getElementById("infoboxes");
+  let infoBoxes = document.getElementById("infoboxes");
   infoBoxes.innerHTML = "";
 }
