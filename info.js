@@ -98,5 +98,10 @@ async function GetAudit(UserData) {
     });
     offset += 50
   }
+  const upRatio = AuditInfo.upAudit.reduce((v1, v2) => v1+v2, 0)
+  const downRatio = AuditInfo.downAudit.reduce((v1, v2) => v1+v2, 0)
+  console.log(upRatio)
+  console.log(downRatio)
+  console.log(upRatio/downRatio)
   console.log(AuditInfo)
 }
