@@ -82,8 +82,8 @@ async function GetTaskandLevel(UserData) {
       UserData.level = data.data.transaction[0].amount;
       if (data.data.progress[i].object.name === "Piscine Rust 2022") {
         let task = new Task(
-          res.data.progress[i].object.name,
-          new Date(res.data.progress[i].updatedAt),
+          data.data.progress[i].object.name,
+          new Date(data.data.progress[i].updatedAt),
           390000
         );
         UserData.task.push(task);
@@ -91,12 +91,12 @@ async function GetTaskandLevel(UserData) {
       } else {
         let xpData = await queryAPI(XpQuery, {
           login: UserData.username,
-          task: res.data.progress[i].object.name,
+          task: data.data.progress[i].object.name,
         });
 
         let task = new Task(
-          res.data.progress[i].object.name,
-          new Date(res.data.progress[i].updatedAt),
+          data.data.progress[i].object.name,
+          new Date(data.data.progress[i].updatedAt),
           xpData.data.transaction[0].amount
         );
         UserData.tasks.push(task);
