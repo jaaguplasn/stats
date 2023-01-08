@@ -36,6 +36,14 @@ export async function Draw(username, id) {
   TaskInfoBox.classList.add("taskgraph");
   TaskInfoBox.appendChild(taskGraph);
   InfoBoxes.appendChild(TaskInfoBox);
+
+  //XPperTime
+  let XpPerTimeGraph = await DrawTaskChart(UserData);
+  let XpPerTimeInfoBox = document.createElement("div");
+  XpPerTimeInfoBox.classList.add("graph");
+  XpPerTimeInfoBox.classList.add("xppertimegraph");
+  XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
+  InfoBoxes.appendChild(XpPerTimeInfoBox);
 }
 
 async function DrawXPChart(UserData) {
@@ -52,9 +60,9 @@ async function DrawXPChart(UserData) {
       } = chart;
       ctx.save();
       ctx.fillStyle = "rgb(50, 214, 21)";
-      ctx.font = '30px sans-serif'
+      ctx.font = "30px sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(UserData.level, width/2, top + (height/2),)
+      ctx.fillText(UserData.level, width / 2, top + height / 2);
     },
   };
   XpGraph.id = "XpGraph";
@@ -86,6 +94,42 @@ async function DrawTaskChart(UserData) {
     if (index !== 0) {
       xlabels.push(task.name);
       xp.push(task.xp);
+    }
+  });
+
+  new Chart(Graph, {
+    type: "line",
+    data: {
+      labels: xlabels,
+      datasets: [
+        {
+          label: "Xp",
+          data: xp,
+          backgroundColor: "rgb(50, 214, 21)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+  return Graph;
+}
+
+async function DrawXpPerTimeChart(UserData) {
+  const Graph = document.createElement("canvas");
+  Graph.id = "TaskGraph";
+  const date = [];
+  const xp = [];
+  UserData.tasks.forEach((task, index) => {
+    if (index !== 0) {
+      xlabels.push(task.date.toLocaleString("en-GB"));
+      xp.push(xp[index] + task.xp);
     }
   });
 
