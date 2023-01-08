@@ -65,7 +65,7 @@ async function DrawXPChart(UserData) {
           data: [XpGotten, XpRemaining],
           backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
           hoverOffset: 4,
-          cutout: "50%",
+          cutout: "90%",
         },
       ],
     },
