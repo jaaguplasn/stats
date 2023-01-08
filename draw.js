@@ -52,7 +52,7 @@ async function DrawXPChart(UserData) {
       } = chart;
       ctx.save();
       ctx.fillStyle = "blue";
-      ctx.font = '12px sans-serif'
+      ctx.font = '30px sans-serif'
       ctx.fillText(UserData.level, width/2, top + (height/2),)
       ctx.fillRect(width, top+(height/2), 10, 10);
     },
