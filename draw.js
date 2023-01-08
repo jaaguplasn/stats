@@ -38,7 +38,7 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(TaskInfoBox);
 
   //XPperTime
-  let XpPerTimeGraph = await DrawTaskChart(UserData);
+  let XpPerTimeGraph = await DrawXpPerTimeChart(UserData);
   let XpPerTimeInfoBox = document.createElement("div");
   XpPerTimeInfoBox.classList.add("graph");
   XpPerTimeInfoBox.classList.add("xppertimegraph");
