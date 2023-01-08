@@ -4,7 +4,6 @@ export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
-  InfoBoxes.classList.add("text-center");
   let row = document.createElement("div");
   row.classList.add("row");
   //Xpinfo
