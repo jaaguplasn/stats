@@ -4,6 +4,8 @@ export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
+  let row = document.createElement("div");
+  row.classList.add("row");
   //Userinfo
   let UserInfoBox = document.createElement("div");
   UserInfoBox.innerText =
@@ -18,16 +20,18 @@ export async function Draw(username, id) {
     "\n" +
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
-  InfoBoxes.appendChild(UserInfoBox);
+  UserInfoBox.classList.add("col");
+  row.appendChild(UserInfoBox);
   //Xpinfo
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
     let XpInfoBox = document.createElement("div");
     XpInfoBox.classList.add("graph");
     XpInfoBox.classList.add("xpgraph");
+    XpInfoBox.classList.add("col");
     let XpGraph = await DrawXPChart(UserData);
-    XpInfoBox.appendChild(XpGraph);
-    InfoBoxes.appendChild(XpInfoBox);
+    row.appendChild(XpGraph);
+    InfoBoxes.appendChild(row);
   }
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
@@ -131,7 +135,6 @@ async function DrawXpPerTimeChart(UserData) {
     if (index !== 0) {
       date.push(new Date(task.date).toLocaleString("en-GB"));
       xpadd = xpadd + task.xp;
-      console.log("Here", xpadd);
       xp.push(xpadd);
     }
   });
