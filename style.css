@@ -1,3 +1,7 @@
+.graph {
+  width: 400px;
+}
+
 /* loading thingy */
 .loader {
   position: fixed;
@@ -125,4 +129,3 @@
     transform: rotate(360deg);
   }
 }
-

@@ -67,7 +67,10 @@ async function DrawXPChart(UserData) {
         },
       ],
     },
-    options: {},
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+    },
     plugins: [counterPlugin],
   });
   return XpGraph;
@@ -99,6 +102,8 @@ async function DrawTaskChart(UserData) {
       ],
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: true,
       scales: {
         y: {
           beginAtZero: true,
