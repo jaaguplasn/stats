@@ -126,12 +126,12 @@ async function DrawXpPerTimeChart(UserData) {
   Graph.id = "TaskGraph";
   const date = [];
   const xp = [];
-  let last = null;
-  UserData.tasks.forEach((task) => {
+  let xpadd = 0;
+  UserData.tasks.forEach((task, index) => {
     date.push(new Date(task.date).toLocaleString("en-GB"));
-    last += parseInt(task.xp);
-    console.log("Here", last)
-    xp.push(last);
+    xpadd = xpadd + task.xp;
+    console.log("Here", xpadd);
+    xp.push(xpadd);
   });
 
   new Chart(Graph, {
