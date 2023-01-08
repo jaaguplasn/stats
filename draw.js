@@ -23,14 +23,16 @@ export async function Draw(username, id) {
   UserInfoBox.classList.add("col");
   row.appendChild(UserInfoBox);
   //Xpinfo
+  let col = document.createElement("div");
+  col.classList.add("col");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
     let XpInfoBox = document.createElement("div");
     XpInfoBox.classList.add("graph");
     XpInfoBox.classList.add("xpgraph");
-    XpInfoBox.classList.add("col");
     let XpGraph = await DrawXPChart(UserData);
-    row.appendChild(XpGraph);
+    col.appendChild(XpGraph);
+    row.appendChild(col);
     InfoBoxes.appendChild(row);
   }
   //TASKinfo
