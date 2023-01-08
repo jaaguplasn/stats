@@ -39,6 +39,18 @@ async function DrawXPChart(UserData) {
   const XpRemaining = UserData.xpTilNextLvl - UserData.xp;
   const XpGotten = LevelDifXp - XpRemaining;
   const XpGraph = document.createElement("canvas");
+  const counterPlugin = {
+    id: "counter",
+    beforeDraw(chart, args, options) {
+      const {
+        ctx,
+        chartArea: { top, right, bottom, left, width, height },
+      } = chart;
+      ctx.save();
+      ctx.fillStyle = "blue";
+      ctx.fillRect(200, 200, 10, 10);
+    },
+  };
   XpGraph.id = "XpGraph";
   new Chart(XpGraph, {
     type: "doughnut",
@@ -53,6 +65,8 @@ async function DrawXPChart(UserData) {
         },
       ],
     },
+    options: {},
+    plugins: [counterPlugin],
   });
   return XpGraph;
 }
