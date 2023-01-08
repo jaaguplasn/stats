@@ -24,6 +24,7 @@ export async function Draw(username, id) {
     // idk what but it doesn't work correctly cuz imo xp forumla?
     let XpInfoBox = document.createElement("div");
     XpInfoBox.classList.add("graph")
+    TaskInfoBox.classList.add("xpgraph")
     let XpGraph = await DrawXPChart(UserData);
     XpInfoBox.appendChild(XpGraph);
     InfoBoxes.appendChild(XpInfoBox);
@@ -32,6 +33,7 @@ export async function Draw(username, id) {
   let taskGraph = await DrawTaskChart(UserData);
   let TaskInfoBox = document.createElement("div");
   TaskInfoBox.classList.add("graph")
+  TaskInfoBox.classList.add("taskgraph")
   TaskInfoBox.appendChild(taskGraph);
   InfoBoxes.appendChild(TaskInfoBox);
 }

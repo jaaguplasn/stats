@@ -1,6 +1,9 @@
 .graph {
   width: 400px;
 }
+.xpgraph {
+  width: 200px
+}
 
 /* loading thingy */
 .loader {
