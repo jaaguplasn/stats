@@ -130,6 +130,7 @@ async function DrawXpPerTimeChart(UserData) {
   UserData.tasks.forEach((task) => {
     date.push(new Date(task.date).toLocaleString("en-GB"));
     last += task.xp;
+    console.log("Here", task.xp)
     xp.push(last);
   });
 
