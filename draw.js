@@ -61,10 +61,12 @@ async function DrawTaskChart(UserData) {
   Graph.id = "TaskGraph";
   const xlabels = [];
   const xp = [];
+  const time = [];
   UserData.tasks.forEach((task, index) => {
     if (index !== 0) {
       xlabels.push(task.name);
       xp.push(task.xp);
+      time.push(task.date);
     }
   });
 
@@ -75,7 +77,7 @@ async function DrawTaskChart(UserData) {
       datasets: [
         {
           label: "Xp",
-          data: xp,
+          data: { xp, time },
           backgroundColor: "rgb(50, 214, 21)",
           borderWidth: 1,
         },
