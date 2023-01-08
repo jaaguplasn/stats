@@ -28,8 +28,13 @@ export async function Draw(username, id) {
     InfoBoxes.appendChild(XpInfoBox);
   }
   //TASKinfo
-  DrawTaskChart(UserData);
+  let taskGraph = await DrawTaskChart(UserData);
+  let TaskInfoBox = document.createElement("div");
+  TaskInfoBox.appendChild(taskGraph);
+  InfoBoxes.appendChild(TaskInfoBox);
 }
+
+
 async function DrawXPChart(UserData) {
   const LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
   const XpRemaining = UserData.xpTilNextLvl - UserData.xp;
@@ -56,22 +61,34 @@ async function DrawTaskChart(UserData) {
   const Graph = document.createElement("canvas");
   Graph.id = "TaskGraph";
   const xlabels = [];
-  const ylabels = [];
+  const xp = [];
   UserData.tasks.forEach((task) => {
-    console.log(task);
+    xlabels.push(task.name);
+    xp.push(task.xp);
   });
 
-  // new Chart(Graph, {
-  //   type: 'bar',
-  //   data: {
-  //     labels: xlabels,
-  //     datasets: [
-  //       {
-
-  //       }
-  //     ]
-  //   }
-  // })
+  new Chart(Graph, {
+    type: "bar",
+    data: {
+      labels: xlabels,
+      datasets: [
+        {
+          label: "Xp",
+          data: xp,
+          backgroundColor: "rgb(50, 214, 21)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+  return Graph;
 }
 
 export function clearDivs() {
