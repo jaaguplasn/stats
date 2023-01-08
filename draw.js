@@ -61,6 +61,19 @@ async function DrawTaskChart(UserData) {
   Graph.id = "TaskGraph";
   const xlabels = [];
   const xp = [];
+  const stackedText = {
+    id: "stackedText",
+    adterDatasetsDraw(chart, args, options) {
+      const {
+        ctx,
+        chartArea: { top, bottom, left, right, width, heigth },
+      } = chart;
+      ctx.save();
+      ctx.font = "bolder40px Arial";
+      ctx.fillStyle = "rgb(50, 214, 21)";
+      ctx.fillText("test", 10, 10);
+    },
+  };
   UserData.tasks.forEach((task, index) => {
     if (index !== 0) {
       xlabels.push(task.name);
@@ -88,6 +101,7 @@ async function DrawTaskChart(UserData) {
         },
       },
     },
+    plugins: [stackedText],
   });
   return Graph;
 }
