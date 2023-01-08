@@ -52,7 +52,8 @@ async function DrawXPChart(UserData) {
       } = chart;
       ctx.save();
       ctx.fillStyle = "blue";
-      ctx.fillRect(50, 50, 10, 10);
+
+      ctx.fillRect(50, top+height/2, 10, 10);
     },
   };
   XpGraph.id = "XpGraph";
