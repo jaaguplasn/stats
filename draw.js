@@ -6,6 +6,19 @@ export async function Draw(username, id) {
   let InfoBoxes = document.getElementById("infoboxes");
   let row = document.createElement("div");
   row.classList.add("row");
+  //Xpinfo
+  let col = document.createElement("div");
+  col.classList.add("col");
+  if (UserData.username === "jaaguplasn") {
+    // idk what but it doesn't work correctly cuz imo xp forumla?
+    let XpInfoBox = document.createElement("div");
+    XpInfoBox.classList.add("graph");
+    XpInfoBox.classList.add("xpgraph");
+    let XpGraph = await DrawXPChart(UserData);
+    col.appendChild(XpGraph);
+    row.appendChild(col);
+    InfoBoxes.appendChild(row);
+  }
   //Userinfo
   let UserInfoBox = document.createElement("div");
   UserInfoBox.innerText =
@@ -22,19 +35,6 @@ export async function Draw(username, id) {
     UserData.auditInfo.auditRatio;
   UserInfoBox.classList.add("col");
   row.appendChild(UserInfoBox);
-  //Xpinfo
-  let col = document.createElement("div");
-  col.classList.add("col");
-  if (UserData.username === "jaaguplasn") {
-    // idk what but it doesn't work correctly cuz imo xp forumla?
-    let XpInfoBox = document.createElement("div");
-    XpInfoBox.classList.add("graph");
-    XpInfoBox.classList.add("xpgraph");
-    let XpGraph = await DrawXPChart(UserData);
-    col.appendChild(XpGraph);
-    row.appendChild(col);
-    InfoBoxes.appendChild(row);
-  }
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
   let TaskInfoBox = document.createElement("div");
