@@ -136,7 +136,7 @@ async function DrawXpPerTimeChart(UserData) {
   new Chart(Graph, {
     type: "line",
     data: {
-      labels: xlabels,
+      labels: date,
       datasets: [
         {
           label: "Xp",
