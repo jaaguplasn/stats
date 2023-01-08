@@ -27,12 +27,14 @@ export async function Draw(username, id) {
     XpInfoBox.appendChild(XpGraph);
     InfoBoxes.appendChild(XpInfoBox);
   }
+  //TASKinfo
+  DrawTaskChart(UserData);
 }
 async function DrawXPChart(UserData) {
-  let LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
-  let XpRemaining = UserData.xpTilNextLvl - UserData.xp;
-  let XpGotten = LevelDifXp - XpRemaining;
-  let XpGraph = document.createElement("canvas");
+  const LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
+  const XpRemaining = UserData.xpTilNextLvl - UserData.xp;
+  const XpGotten = LevelDifXp - XpRemaining;
+  const XpGraph = document.createElement("canvas");
   XpGraph.id = "XpGraph";
   new Chart(XpGraph, {
     type: "doughnut",
@@ -48,6 +50,28 @@ async function DrawXPChart(UserData) {
     },
   });
   return XpGraph;
+}
+
+async function DrawTaskChart(UserData) {
+  const Graph = document.createElement("canvas");
+  Graph.id = "TaskGraph";
+  const xlabels = [];
+  const ylabels = [];
+  UserData.tasks.forEach((task) => {
+    console.log(task);
+  });
+
+  // new Chart(Graph, {
+  //   type: 'bar',
+  //   data: {
+  //     labels: xlabels,
+  //     datasets: [
+  //       {
+
+  //       }
+  //     ]
+  //   }
+  // })
 }
 
 export function clearDivs() {
