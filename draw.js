@@ -40,27 +40,6 @@ async function DrawXPChart(UserData) {
   const XpGotten = LevelDifXp - XpRemaining;
   const XpGraph = document.createElement("canvas");
   XpGraph.id = "XpGraph";
-  new Chart(XpGraph, {
-    type: "doughnut",
-    data: {
-      datasets: [
-        {
-          label: "xp",
-          data: [XpGotten, XpRemaining],
-          backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
-          hoverOffset: 4,
-        },
-      ],
-    },
-  });
-  return XpGraph;
-}
-
-async function DrawTaskChart(UserData) {
-  const Graph = document.createElement("canvas");
-  Graph.id = "TaskGraph";
-  const xlabels = [];
-  const xp = [];
   const stackedText = {
     id: "stackedText",
     adterDatasetsDraw(chart, args, options) {
@@ -74,6 +53,28 @@ async function DrawTaskChart(UserData) {
       ctx.fillText("test", 10, 10);
     },
   };
+  new Chart(XpGraph, {
+    type: "doughnut",
+    data: {
+      datasets: [
+        {
+          label: "xp",
+          data: [XpGotten, XpRemaining],
+          backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
+          hoverOffset: 4,
+        },
+      ],
+    },
+    plugins: [stackedText],
+  });
+  return XpGraph;
+}
+
+async function DrawTaskChart(UserData) {
+  const Graph = document.createElement("canvas");
+  Graph.id = "TaskGraph";
+  const xlabels = [];
+  const xp = [];
   UserData.tasks.forEach((task, index) => {
     if (index !== 0) {
       xlabels.push(task.name);
@@ -101,7 +102,6 @@ async function DrawTaskChart(UserData) {
         },
       },
     },
-    plugins: [stackedText],
   });
   return Graph;
 }
