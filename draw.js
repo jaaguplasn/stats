@@ -34,7 +34,6 @@ export async function Draw(username, id) {
   InfoBoxes.appendChild(TaskInfoBox);
 }
 
-
 async function DrawXPChart(UserData) {
   const LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
   const XpRemaining = UserData.xpTilNextLvl - UserData.xp;
@@ -62,9 +61,11 @@ async function DrawTaskChart(UserData) {
   Graph.id = "TaskGraph";
   const xlabels = [];
   const xp = [];
-  UserData.tasks.forEach((task) => {
-    xlabels.push(task.name);
-    xp.push(task.xp);
+  UserData.tasks.forEach((task, index) => {
+    if (index !== 0) {
+      xlabels.push(task.name);
+      xp.push(task.xp);
+    }
   });
 
   new Chart(Graph, {
