@@ -40,19 +40,6 @@ async function DrawXPChart(UserData) {
   const XpGotten = LevelDifXp - XpRemaining;
   const XpGraph = document.createElement("canvas");
   XpGraph.id = "XpGraph";
-  const stackedText = {
-    id: "stackedText",
-    adterDatasetsDraw(chart, args, options) {
-      const {
-        ctx,
-        chartArea: { top, bottom, left, right, width, heigth },
-      } = chart;
-      ctx.save();
-      ctx.font = "bolder40px Arial";
-      ctx.fillStyle = "rgb(50, 214, 21)";
-      ctx.fillText("test", 10, 10);
-    },
-  };
   new Chart(XpGraph, {
     type: "doughnut",
     data: {
@@ -62,10 +49,10 @@ async function DrawXPChart(UserData) {
           data: [XpGotten, XpRemaining],
           backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
           hoverOffset: 4,
+          cutout: "50%",
         },
       ],
     },
-    plugins: [stackedText],
   });
   return XpGraph;
 }
