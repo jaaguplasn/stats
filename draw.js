@@ -11,7 +11,7 @@ export async function Draw(username, id) {
   col1.classList.add("col");
   row.appendChild(col1);
   let col = document.createElement("div");
-  col.classList.add("col");
+  col.classList.add("col-3");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
     let XpInfoBox = document.createElement("div");
