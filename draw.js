@@ -35,13 +35,16 @@ export async function Draw(username, id) {
     UserData.auditInfo.auditRatio;
   UserInfoBox.classList.add("col");
   row.appendChild(UserInfoBox);
+  //graphs
+  let GraphsBox = document.createElement("div");
+  GraphsBox.classList.add("container");
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
   let TaskInfoBox = document.createElement("div");
   TaskInfoBox.classList.add("graph");
   TaskInfoBox.classList.add("taskgraph");
   TaskInfoBox.appendChild(taskGraph);
-  InfoBoxes.appendChild(TaskInfoBox);
+  GraphsBox.appendChild(TaskInfoBox);
 
   //XPperTime
   let XpPerTimeGraph = await DrawXpPerTimeChart(UserData);
@@ -49,7 +52,8 @@ export async function Draw(username, id) {
   XpPerTimeInfoBox.classList.add("graph");
   XpPerTimeInfoBox.classList.add("xppertimegraph");
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
-  InfoBoxes.appendChild(XpPerTimeInfoBox);
+  GraphsBox.appendChild(XpPerTimeInfoBox);
+  InfoBoxes.appendChild(GraphsBox);
 }
 
 async function DrawXPChart(UserData) {
