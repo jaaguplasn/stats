@@ -47,13 +47,15 @@ async function DrawUserInfo(UserData) {
   let UserInfoBox = document.createElement("div");
   let UserInfoText = document.createElement("p");
   UserInfoBox.innerText =
-    "Username: " +
     UserData.username +
     " # " +
     UserData.id +
     "\n" +
     "Level: " +
     UserData.level +
+    "\n" +
+    "Total XP: " +
+    UserData.xp +
     "\n" +
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
