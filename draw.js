@@ -85,8 +85,15 @@ async function DrawXPChart(UserData) {
         },
       ],
     },
-    options: {},
-    plugins: [counterPlugin],
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'XP'
+        }
+      }
+    },
+    plugins: [counterPlugin]
   });
   return XpGraph;
 }
