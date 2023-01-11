@@ -21,7 +21,7 @@ export async function Draw(username, id) {
   UserDataBoxes.appendChild(UserInfoBox);
   //graphs
 
-  let GraphsBoxes = document.getElementById("GraphBoxes");
+  let GraphsBoxes = document.getElementsByClassName("GraphBoxes");
 
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
