@@ -9,28 +9,27 @@ export async function Draw(username, id) {
   //Xpinfo
   let col = document.createElement("div");
   col.classList.add("g-col-6");
-  if (UserData.username === "jaaguplasn") {
-    // idk what but it doesn't work correctly cuz imo xp forumla?
-    let XpInfoBox = document.createElement("div");
-    col.classList.add("graph");
-    col.classList.add("xpgraph");
-    let XpGraph = await DrawXPChart(UserData);
-    col.appendChild(XpGraph);
-    row.appendChild(col);
-    InfoBoxes.appendChild(row);
-  }
+
+  let XpInfoBox = document.createElement("div");
+  col.classList.add("graph");
+  col.classList.add("xpgraph");
+  let XpGraph = await DrawXPChart(UserData);
+  col.appendChild(XpGraph);
+  row.appendChild(col);
+  InfoBoxes.appendChild(row);
+
   //Userinfo
   let UserInfoBox = await DrawUserInfo(UserData);
   row.appendChild(UserInfoBox);
   //graphs
   let GraphsBox = document.createElement("div");
-  GraphsBox.classList.add("list-group")
+  GraphsBox.classList.add("list-group");
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
   let TaskInfoBox = document.createElement("div");
   TaskInfoBox.classList.add("graph");
   TaskInfoBox.classList.add("taskgraph");
-  TaskInfoBox.classList.add("list-group-item")
+  TaskInfoBox.classList.add("list-group-item");
   TaskInfoBox.appendChild(taskGraph);
   GraphsBox.appendChild(TaskInfoBox);
 
@@ -39,7 +38,7 @@ export async function Draw(username, id) {
   let XpPerTimeInfoBox = document.createElement("div");
   XpPerTimeInfoBox.classList.add("graph");
   XpPerTimeInfoBox.classList.add("xppertimegraph");
-  XpPerTimeInfoBox.classList.add("list-group-item")
+  XpPerTimeInfoBox.classList.add("list-group-item");
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
   GraphsBox.appendChild(XpPerTimeInfoBox);
   InfoBoxes.appendChild(GraphsBox);
