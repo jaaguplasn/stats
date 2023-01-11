@@ -89,11 +89,11 @@ async function DrawXPChart(UserData) {
       plugins: {
         title: {
           display: true,
-          text: 'XP'
-        }
-      }
+          text: "XP",
+        },
+      },
     },
-    plugins: [counterPlugin]
+    plugins: [counterPlugin],
   });
   return XpGraph;
 }
@@ -127,6 +127,10 @@ async function DrawTaskChart(UserData) {
       scales: {
         y: {
           beginAtZero: true,
+        },
+        title: {
+          display: true,
+          text: "Xp per task",
         },
       },
     },
@@ -167,6 +171,10 @@ async function DrawXpPerTimeChart(UserData) {
           beginAtZero: true,
         },
       },
+      title: {
+        display: true,
+        text: "Xp by time"
+      }
     },
   });
   return Graph;
