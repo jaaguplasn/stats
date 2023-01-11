@@ -6,8 +6,7 @@
 }
 .xpgraph {
   width: 25%;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 /* loading thingy */
 .loader {
