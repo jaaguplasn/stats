@@ -3,33 +3,35 @@ import { getInfo } from "./info.js";
 export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
+  let InfoBoxes = document.getElementById("infoboxes");
+  let row = document.createElement("div");
+  row.classList.add("row");
   //Xpinfo
+  let col = document.createElement("div");
+  col.classList.add("col");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
-    let UserDataBoxes = document.getElementsByClassName("UserDataBoxes");
-    let XpGraphBox = document.createElement("div");
-    XpGraphBox.classList.add("graph");
-    XpGraphBox.classList.add("xpgraph");
+    let XpInfoBox = document.createElement("div");
+    XpInfoBox.classList.add("graph");
+    XpInfoBox.classList.add("xpgraph");
     let XpGraph = await DrawXPChart(UserData);
-    XpGraphBox.appendChild(XpGraph);
-    UserDataBoxes.appendChild(XpGraphBox);
+    col.appendChild(XpGraph);
+    row.appendChild(col);
+    InfoBoxes.appendChild(row);
   }
   //Userinfo
-  UserInfoBox = document.getElementById("UserInfoBox");
-  let UserInfoText = await DrawUserInfo(UserData);
-  UserInfoBox.appendChild(UserInfoText);
-  UserDataBoxes.appendChild(UserInfoBox);
+  let UserInfoBox = await DrawUserInfo(UserData);
+  row.appendChild(UserInfoBox);
   //graphs
-
-  let GraphsBoxes = document.getElementsByClassName("GraphBoxes");
-
+  let GraphsBox = document.createElement("div");
+  GraphsBox.classList.add("container");
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
   let TaskInfoBox = document.createElement("div");
   TaskInfoBox.classList.add("graph");
   TaskInfoBox.classList.add("taskgraph");
   TaskInfoBox.appendChild(taskGraph);
-  GraphsBoxes.appendChild(TaskInfoBox);
+  GraphsBox.appendChild(TaskInfoBox);
 
   //XPperTime
   let XpPerTimeGraph = await DrawXpPerTimeChart(UserData);
@@ -37,13 +39,14 @@ export async function Draw(username, id) {
   XpPerTimeInfoBox.classList.add("graph");
   XpPerTimeInfoBox.classList.add("xppertimegraph");
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
-  GraphsBoxes.appendChild(XpPerTimeInfoBox);
+  GraphsBox.appendChild(XpPerTimeInfoBox);
+  InfoBoxes.appendChild(GraphsBox);
 }
 
 async function DrawUserInfo(UserData) {
   let UserInfoBox = document.createElement("div");
   let UserInfoText = document.createElement("p");
-  UserInfoText.innerText =
+  UserInfoBox.innerText =
     "Username: " +
     UserData.username +
     "\n" +
@@ -56,7 +59,6 @@ async function DrawUserInfo(UserData) {
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
   UserInfoBox.classList.add("col");
-  UserInfoBox.appendChild(UserInfoText);
   return UserInfoBox;
 }
 
