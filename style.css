@@ -11,6 +11,9 @@
   align-items: center;
   justify-content: center;
 }
+.graph {
+  width: 100%;
+}
 .xpgraph {
   width: 25%;
   text-align: center;
