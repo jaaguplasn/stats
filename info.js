@@ -12,8 +12,8 @@ export let info = {
   id: null,
   level: null,
   xp: null,
-  xpTilNextLvl: null,
-  xpTilCurrentLvl: null,
+  xpNextLvl: null,
+  xpCurrentLvl: null,
   auditInfo: null,
   tasks: [Task],
 };
@@ -68,13 +68,13 @@ async function GetTaskandLevel(UserData) {
     }
     offset += 50;
   }
-  UserData.xpTilNextLvl = getXp(UserData.level + 1);
-  UserData.xpTilCurrentLvl = getXp(UserData.level);
+  UserData.xpNextLvl = getXp(UserData.level + 1);
+  UserData.xpCurrentLvl = getXp(UserData.level);
   return UserData;
 }
 
 // Returns the amount of XP needed for any given level
-const getXp = level => 33 * level ** 3 + 124.5 * level ** 2 + 672.5 * level
+const getXp = (level) => 33 * level ** 3 + 124.5 * level ** 2 + 672.5 * level;
 
 async function GetAudit(UserData) {
   let AuditInfo = {
@@ -116,8 +116,8 @@ export function clearInfo() {
   (info.id = null),
     (info.level = null),
     (info.xp = null),
-    (info.xpTilNextLvl = null),
-    (info.xpTilCurrentLvl = null),
+    (info.xpNextLvl = null),
+    (info.xpCurrentLvl = null),
     (info.tasks = [Task]),
     (info.auditInfo = null);
 }

@@ -67,8 +67,8 @@ async function DrawUserInfo(UserData) {
 }
 
 async function DrawXPChart(UserData) {
-  const LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
-  const XpRemaining = UserData.xpTilNextLvl - UserData.xp;
+  const LevelDifXp = UserData.xpNextLvl - UserData.xpCurrentLvl;
+  const XpRemaining = UserData.xpNextLvl - UserData.xp;
   const XpGotten = LevelDifXp - XpRemaining;
   const XpGraph = document.createElement("canvas");
   const counterPlugin = {
