@@ -63,7 +63,6 @@ async function DrawUserInfo(UserData) {
     UserData.auditInfo.auditRatio;
   UserInfoBox.appendChild(UserInfoText);
   UserInfoBox.classList.add("col");
-  UserInfoBox.classList.add("position-absolute");
   UserInfoBox.classList.add("top-50");
   UserInfoBox.classList.add("start-0");
   return UserInfoBox;
