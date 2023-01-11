@@ -1,7 +1,10 @@
 .xpgraph {
   width: 25%;
 }
-
+.userinfobox {
+  display: flex;
+  align-content: center;
+}
 /* loading thingy */
 .loader {
   position: fixed;
