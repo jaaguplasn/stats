@@ -75,7 +75,7 @@ async function GetTaskandLevel(UserData) {
 
 // Returns the amount of XP needed for any given level
 function levelNeededXP(level) {
-  return Math.round(level * (176 + 3 * level * (47 + 11 * level)));
+  return Math.round((level * 0.66 + 1) * ((level + 2) * 150 + 50))
 }
 
 async function GetAudit(UserData) {
