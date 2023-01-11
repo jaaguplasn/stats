@@ -146,7 +146,7 @@ async function DrawTaskChart(UserData) {
 
 async function DrawXpPerTimeChart(UserData) {
   const Graph = document.createElement("canvas");
-  Graph.id = "TaskGraph";
+  Graph.id = "XpPerTimeGraph";
   const date = [];
   const xp = [];
   let xpadd = 0;
