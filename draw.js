@@ -5,7 +5,7 @@ export async function Draw(username, id) {
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
   let row = document.createElement("div");
-  row.classList.add("d-flex " );
+  row.classList.add("d-flex");
 
   //Xpinfo
   let col = document.createElement("div");
