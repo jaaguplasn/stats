@@ -9,6 +9,7 @@ export async function Draw(username, id) {
   //Xpinfo
   let col = document.createElement("div");
   col.classList.add("col");
+  col.classList.add("text-end");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
     let XpInfoBox = document.createElement("div");
@@ -24,7 +25,6 @@ export async function Draw(username, id) {
   row.appendChild(UserInfoBox);
   //graphs
   let GraphsBox = document.createElement("div");
-  GraphsBox.classList.add("container");
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
   let TaskInfoBox = document.createElement("div");
