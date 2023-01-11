@@ -132,7 +132,7 @@ async function DrawTaskChart(UserData) {
       plugins: {
         title: {
           display: true,
-          text: "Xp by time",
+          text: "Xp by task",
         },
       },
     },
