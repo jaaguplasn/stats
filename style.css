@@ -1,9 +1,10 @@
-.xpgraph {
-  width: 25%;
-}
 .userinfobox {
   display: flex;
   align-content: center;
+  flex-wrap: wrap;
+}
+.xpgraph {
+  width: 25%;
 }
 /* loading thingy */
 .loader {
