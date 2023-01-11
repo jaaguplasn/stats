@@ -49,8 +49,7 @@ async function DrawUserInfo(UserData) {
   UserInfoBox.innerText =
     "Username: " +
     UserData.username +
-    "\n" +
-    "ID: " +
+    " # " +
     UserData.id +
     "\n" +
     "Level: " +
