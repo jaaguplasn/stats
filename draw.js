@@ -6,6 +6,7 @@ export async function Draw(username, id) {
   let InfoBoxes = document.getElementById("infoboxes");
   let row = document.createElement("div");
   row.classList.add("userinfobox")
+  row.classList.add("border")
 
   //Xpinfo
   let col = document.createElement("div");
