@@ -4,27 +4,24 @@ export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
-  let row = document.createElement("div");
-  row.classList.add("row");
   //Xpinfo
-  let col = document.createElement("div");
-  col.classList.add("col");
+  let UserDataBox = document.getElementById("div");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
-    let XpInfoBox = document.createElement("div");
+    let XpInfoBox = document.getElementById("XpGraphBox");
     XpInfoBox.classList.add("graph");
     XpInfoBox.classList.add("xpgraph");
     let XpGraph = await DrawXPChart(UserData);
-    col.appendChild(XpGraph);
-    row.appendChild(col);
-    InfoBoxes.appendChild(row);
+    XpInfoBox.appendChild(XpGraph);
   }
   //Userinfo
-  let UserInfoBox = await DrawUserInfo(UserData);
-  row.appendChild(UserInfoBox);
+  UserInfoBox = document.getElementById("UserInfoBox");
+  let UserInfoText = await DrawUserInfo(UserData);
+  UserInfoBox.appendChild(UserInfoText);
   //graphs
-  let GraphsBox = document.createElement("div");
-  GraphsBox.classList.add("container");
+  
+  let GraphsBox = document.getElementById("GraphBox");
+
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
   let TaskInfoBox = document.createElement("div");
@@ -40,7 +37,6 @@ export async function Draw(username, id) {
   XpPerTimeInfoBox.classList.add("xppertimegraph");
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
   GraphsBox.appendChild(XpPerTimeInfoBox);
-  InfoBoxes.appendChild(GraphsBox);
 }
 
 async function DrawUserInfo(UserData) {
