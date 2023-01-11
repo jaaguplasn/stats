@@ -11,7 +11,6 @@ export async function Draw(username, id) {
   let XpInfoBox = document.createElement("div");
   col.classList.add("graph");
   col.classList.add("xpgraph");
-  col.classList.add("text-center");
   let XpGraph = await DrawXPChart(UserData);
   col.appendChild(XpGraph);
 
