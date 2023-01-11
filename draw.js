@@ -8,7 +8,7 @@ export async function Draw(username, id) {
   row.classList.add("grid");
   //Xpinfo
   let col = document.createElement("div");
-  col.classList.add("g-col");
+  col.classList.add("g-col-4");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
     let XpInfoBox = document.createElement("div");
