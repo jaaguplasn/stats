@@ -68,15 +68,13 @@ async function GetTaskandLevel(UserData) {
     }
     offset += 50;
   }
-  UserData.xpTilNextLvl = levelNeededXP(UserData.level + 1);
-  UserData.xpTilCurrentLvl = levelNeededXP(UserData.level);
+  UserData.xpTilNextLvl = getXp(UserData.level + 1);
+  UserData.xpTilCurrentLvl = getXp(UserData.level);
   return UserData;
 }
 
 // Returns the amount of XP needed for any given level
-function levelNeededXP(level) {
-  return Math.round((level * 0.66 + 1) * ((level + 2) * 150 + 50))
-}
+const getXp = level => 33 * level ** 3 + 124.5 * level ** 2 + 672.5 * level
 
 async function GetAudit(UserData) {
   let AuditInfo = {
