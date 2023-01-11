@@ -45,7 +45,8 @@ export async function Draw(username, id) {
 
 async function DrawUserInfo(UserData) {
   let UserInfoBox = document.createElement("div");
-  UserInfoBox.innerText =
+  let UserInfoText = document.createElement("p");
+  UserInfoText.innerText =
     "Username: " +
     UserData.username +
     "\n" +
@@ -58,6 +59,7 @@ async function DrawUserInfo(UserData) {
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
   UserInfoBox.classList.add("col");
+  UserInfoBox.appendChild(UserInfoText);
   return UserInfoBox;
 }
 
