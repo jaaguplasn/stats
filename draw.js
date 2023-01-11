@@ -5,16 +5,15 @@ export async function Draw(username, id) {
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
   let row = document.createElement("div");
-  row.classList.add("grid");
+
   //Xpinfo
   let col = document.createElement("div");
-  col.classList.add("g-col-6");
-
   let XpInfoBox = document.createElement("div");
   col.classList.add("graph");
   col.classList.add("xpgraph");
   let XpGraph = await DrawXPChart(UserData);
   col.appendChild(XpGraph);
+
   //TOTAL XP INFO
   let totalXpP = document.createElement("p");
   totalXpP.innerText = `TotalXp: ${UserData.xp}`;
@@ -59,7 +58,6 @@ async function DrawUserInfo(UserData) {
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
   UserInfoBox.appendChild(UserInfoText);
-  UserInfoBox.classList.add("g-col-6");
   return UserInfoBox;
 }
 
