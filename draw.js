@@ -8,7 +8,7 @@ export async function Draw(username, id) {
   row.classList.add("grid");
   //Xpinfo
   let col = document.createElement("div");
-  col.classList.add("g-col-4");
+  col.classList.add("g-col-6");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
     let XpInfoBox = document.createElement("div");
@@ -59,7 +59,7 @@ async function DrawUserInfo(UserData) {
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
   UserInfoBox.appendChild(UserInfoText);
-  UserInfoBox.classList.add("g-col");
+  UserInfoBox.classList.add("g-col-6");
   return UserInfoBox;
 }
 
