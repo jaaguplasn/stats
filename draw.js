@@ -3,24 +3,22 @@ import { getInfo } from "./info.js";
 export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
-  let InfoBoxes = document.getElementById("infoboxes");
   //Xpinfo
-  let UserDataBox = document.getElementById("div");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
-    let XpInfoBox = document.getElementById("XpGraphBox");
-    XpInfoBox.classList.add("graph");
-    XpInfoBox.classList.add("xpgraph");
+    let XpGraphBox = document.getElementById("XpGraphBox");
+    XpGraphBox.classList.add("graph");
+    XpGraphBox.classList.add("xpgraph");
     let XpGraph = await DrawXPChart(UserData);
-    XpInfoBox.appendChild(XpGraph);
+    XpGraphBox.appendChild(XpGraph);
   }
   //Userinfo
   UserInfoBox = document.getElementById("UserInfoBox");
   let UserInfoText = await DrawUserInfo(UserData);
   UserInfoBox.appendChild(UserInfoText);
   //graphs
-  
-  let GraphsBox = document.getElementById("GraphBox");
+
+  let GraphsBoxes = document.getElementById("GraphBoxes");
 
   //TASKinfo
   let taskGraph = await DrawTaskChart(UserData);
@@ -28,7 +26,7 @@ export async function Draw(username, id) {
   TaskInfoBox.classList.add("graph");
   TaskInfoBox.classList.add("taskgraph");
   TaskInfoBox.appendChild(taskGraph);
-  GraphsBox.appendChild(TaskInfoBox);
+  GraphsBoxes.appendChild(TaskInfoBox);
 
   //XPperTime
   let XpPerTimeGraph = await DrawXpPerTimeChart(UserData);
@@ -36,7 +34,7 @@ export async function Draw(username, id) {
   XpPerTimeInfoBox.classList.add("graph");
   XpPerTimeInfoBox.classList.add("xppertimegraph");
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
-  GraphsBox.appendChild(XpPerTimeInfoBox);
+  GraphsBoxes.appendChild(XpPerTimeInfoBox);
 }
 
 async function DrawUserInfo(UserData) {
