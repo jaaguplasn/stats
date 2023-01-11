@@ -20,20 +20,7 @@ export async function Draw(username, id) {
     InfoBoxes.appendChild(row);
   }
   //Userinfo
-  let UserInfoBox = document.createElement("div");
-  UserInfoBox.innerText =
-    "Username: " +
-    UserData.username +
-    "\n" +
-    "ID: " +
-    UserData.id +
-    "\n" +
-    "Level: " +
-    UserData.level +
-    "\n" +
-    "Audit Ratio: " +
-    UserData.auditInfo.auditRatio;
-  UserInfoBox.classList.add("col");
+  let UserInfoBox = DrawUserInfo(UserData);
   row.appendChild(UserInfoBox);
   //graphs
   let GraphsBox = document.createElement("div");
@@ -55,6 +42,25 @@ export async function Draw(username, id) {
   GraphsBox.appendChild(XpPerTimeInfoBox);
   InfoBoxes.appendChild(GraphsBox);
 }
+
+async function DrawUserInfo(UserData) {
+  let UserInfoBox = document.createElement("div");
+  UserInfoBox.innerText =
+    "Username: " +
+    UserData.username +
+    "\n" +
+    "ID: " +
+    UserData.id +
+    "\n" +
+    "Level: " +
+    UserData.level +
+    "\n" +
+    "Audit Ratio: " +
+    UserData.auditInfo.auditRatio;
+  UserInfoBox.classList.add("col");
+  return UserInfoBox
+}
+
 
 async function DrawXPChart(UserData) {
   const LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
