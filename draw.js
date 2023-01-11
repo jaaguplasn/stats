@@ -6,17 +6,19 @@ export async function Draw(username, id) {
   //Xpinfo
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
-    let XpGraphBox = document.getElementById("XpGraphBox");
-    console.log(XpGraphBox);
+    let UserDataBoxes = document.getElementById("UserDataBoxes");
+    let XpGraphBox = document.createElement("div")
     XpGraphBox.classList.add("graph");
     XpGraphBox.classList.add("xpgraph");
     let XpGraph = await DrawXPChart(UserData);
     XpGraphBox.appendChild(XpGraph);
+    UserDataBoxes.appendChild(XpGraphBox);
   }
   //Userinfo
   UserInfoBox = document.getElementById("UserInfoBox");
   let UserInfoText = await DrawUserInfo(UserData);
   UserInfoBox.appendChild(UserInfoText);
+  UserDataBoxes.appendChild(UserInfoBox);
   //graphs
 
   let GraphsBoxes = document.getElementById("GraphBoxes");
