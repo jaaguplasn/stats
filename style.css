@@ -1,18 +1,10 @@
-#infoboxes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .userinfobox {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.list-group{
-  width: 100%;
+  justify-self: center;
 }
 .xpgraph {
   width: 25%;
