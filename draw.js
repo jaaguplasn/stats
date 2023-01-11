@@ -127,6 +127,8 @@ async function DrawTaskChart(UserData) {
           text: "Xp by task",
         },
       },
+      maintainAspectRatio: false,
+      responsive: true,
     },
   });
   return Graph;
