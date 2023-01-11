@@ -15,6 +15,10 @@ export async function Draw(username, id) {
   col.classList.add("xpgraph");
   let XpGraph = await DrawXPChart(UserData);
   col.appendChild(XpGraph);
+  //TOTAL XP INFO
+  let totalXpP = document.createElement("p");
+  totalXpP.innerText = `TotalXp: ${UserData.xp}`;
+  col.appendChild(totalXpP);
   row.appendChild(col);
   InfoBoxes.appendChild(row);
 
@@ -49,14 +53,8 @@ async function DrawUserInfo(UserData) {
   let UserInfoText = document.createElement("p");
   UserInfoText.innerText =
     UserData.username +
-    " # " +
+    " #" +
     UserData.id +
-    "\n" +
-    "Level: " +
-    UserData.level +
-    "\n" +
-    "Total XP: " +
-    UserData.xp +
     "\n" +
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
