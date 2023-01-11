@@ -128,10 +128,10 @@ async function DrawTaskChart(UserData) {
         y: {
           beginAtZero: true,
         },
-        title: {
-          display: true,
-          text: "Xp per task",
-        },
+      },
+      title: {
+        display: true,
+        text: "Xp per Task",
       },
     },
   });
@@ -173,8 +173,8 @@ async function DrawXpPerTimeChart(UserData) {
       },
       title: {
         display: true,
-        text: "Xp by time"
-      }
+        text: "Xp by time",
+      },
     },
   });
   return Graph;
