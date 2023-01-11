@@ -173,6 +173,8 @@ async function DrawXpPerTimeChart(UserData) {
           text: "Xp by time",
         },
       },
+      maintainAspectRatio: false,
+      responsive: true,
     },
   });
   return Graph;
