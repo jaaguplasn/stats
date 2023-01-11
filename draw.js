@@ -20,7 +20,7 @@ export async function Draw(username, id) {
     InfoBoxes.appendChild(row);
   }
   //Userinfo
-  let UserInfoBox = DrawUserInfo(UserData);
+  let UserInfoBox = await DrawUserInfo(UserData);
   row.appendChild(UserInfoBox);
   //graphs
   let GraphsBox = document.createElement("div");
@@ -58,9 +58,8 @@ async function DrawUserInfo(UserData) {
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
   UserInfoBox.classList.add("col");
-  return UserInfoBox
+  return UserInfoBox;
 }
-
 
 async function DrawXPChart(UserData) {
   const LevelDifXp = UserData.xpTilNextLvl - UserData.xpTilCurrentLvl;
