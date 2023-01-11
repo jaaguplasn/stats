@@ -99,6 +99,7 @@ async function DrawXPChart(UserData) {
     plugins: [counterPlugin],
     options: {
       responsive: true,
+      maintainAspectRatio: false,
     },
   });
   return XpGraph;
