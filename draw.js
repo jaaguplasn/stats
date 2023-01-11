@@ -5,6 +5,7 @@ export async function Draw(username, id) {
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
   let row = document.createElement("div");
+  row.classList.add("userinfobox")
 
   //Xpinfo
   let col = document.createElement("div");
@@ -23,6 +24,7 @@ export async function Draw(username, id) {
 
   //Userinfo
   let UserInfoBox = await DrawUserInfo(UserData);
+  UserInfoBox.classList.add("userdata")
   row.appendChild(UserInfoBox);
   //graphs
   let GraphsBox = document.createElement("div");
