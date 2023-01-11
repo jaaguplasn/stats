@@ -1,8 +1,8 @@
 .userinfobox {
   display: flex;
-  align-content: center;
   flex-direction: column;
-
+  align-items: center;
+  justify-content: center;
 }
 .xpgraph {
   width: 25%;
