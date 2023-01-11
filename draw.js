@@ -48,7 +48,6 @@ export async function Draw(username, id) {
 async function DrawUserInfo(UserData) {
   let UserInfoBox = document.createElement("div");
   let UserInfoText = document.createElement("p");
-  UserInfoText.classList.add("justify-content-center");
   UserInfoText.innerText =
     UserData.username +
     " # " +
@@ -64,6 +63,7 @@ async function DrawUserInfo(UserData) {
     UserData.auditInfo.auditRatio;
   UserInfoBox.appendChild(UserInfoText);
   UserInfoBox.classList.add("col");
+  UserInfoBox.classList.add("justify-content-center");
   return UserInfoBox;
 }
 
