@@ -5,13 +5,10 @@ export async function Draw(username, id) {
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
   let row = document.createElement("div");
-  row.classList.add("row");
+  row.classList.add("grid");
   //Xpinfo
-  let col1 = document.createElement("div");
-  col1.classList.add("col");
-  row.appendChild(col1);
   let col = document.createElement("div");
-  col.classList.add("col-3");
+  col.classList.add("g-col");
   if (UserData.username === "jaaguplasn") {
     // idk what but it doesn't work correctly cuz imo xp forumla?
     let XpInfoBox = document.createElement("div");
@@ -62,9 +59,7 @@ async function DrawUserInfo(UserData) {
     "Audit Ratio: " +
     UserData.auditInfo.auditRatio;
   UserInfoBox.appendChild(UserInfoText);
-  UserInfoBox.classList.add("col");
-  UserInfoBox.classList.add("top-50");
-  UserInfoBox.classList.add("start-0");
+  UserInfoBox.classList.add("g-col");
   return UserInfoBox;
 }
 
