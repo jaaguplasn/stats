@@ -180,6 +180,7 @@ async function DrawXpPerTimeChart(UserData) {
       scales: {
         y: {
           beginAtZero: true,
+          drawBorders: false,
         },
       },
       plugins: {
