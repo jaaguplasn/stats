@@ -80,7 +80,7 @@ async function DrawXPChart(UserData) {
       ctx.fillStyle = "rgb(50, 214, 21)";
       ctx.font = "15px sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText("Level" + UserData.level, width / 2, top + height / 2);
+      ctx.fillText("Level " + UserData.level, width / 2, top + height / 2);
     },
   };
   XpGraph.id = "XpGraph";
