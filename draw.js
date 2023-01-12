@@ -5,8 +5,8 @@ export async function Draw(username, id) {
   console.log(UserData);
   let InfoBoxes = document.getElementById("infoboxes");
   let row = document.createElement("div");
-  row.classList.add("userinfobox")
-  row.classList.add("border")
+  row.classList.add("userinfobox");
+  row.classList.add("border");
 
   //Xpinfo
   let col = document.createElement("div");
@@ -25,7 +25,7 @@ export async function Draw(username, id) {
 
   //Userinfo
   let UserInfoBox = await DrawUserInfo(UserData);
-  UserInfoBox.classList.add("userdata")
+  UserInfoBox.classList.add("userdata");
   row.appendChild(UserInfoBox);
   //graphs
   let GraphsBox = document.createElement("div");
@@ -93,8 +93,7 @@ async function DrawXPChart(UserData) {
           data: [XpGotten, XpRemaining],
           backgroundColor: ["rgb(50, 214, 21)", "rgb(207, 205, 202)"],
           hoverOffset: 4,
-          borderWidth: 1,
-          borderColor: 'black',
+          borderColor: "black",
           cutout: "90%",
         },
       ],
