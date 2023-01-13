@@ -2,8 +2,7 @@ body {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 p {
-  font-family: 'Roboto Slab', serif;
-
+  font-family: "Roboto Slab", serif;
 }
 .userinfobox {
   width: 50%;
@@ -12,7 +11,12 @@ p {
   align-items: center;
   justify-content: center;
   margin: auto;
-  background-color: white;
+  background: radial-gradient(
+    circle,
+    rgba(226, 235, 240, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(226, 235, 240, 1) 100%
+  );
 }
 .xpgraph {
   width: 25%;
