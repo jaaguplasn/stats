@@ -158,7 +158,7 @@ async function DrawXpPerTimeChart(UserData) {
   let xpadd = 0;
   UserData.tasks.forEach((task, index) => {
     if (index !== 0) {
-      date.push(new Date(task.date));
+      date.push(new Date(task.date).toLocaleString("en-GB"));
       xpadd = xpadd + task.xp;
       xp.push(xpadd);
     }
@@ -182,17 +182,6 @@ async function DrawXpPerTimeChart(UserData) {
         y: {
           beginAtZero: true,
         },
-        xAxes: [
-          {
-            type: "time",
-            gridLines: {
-              display: true,
-            },
-            time: {
-              minUnit: "month",
-            },
-          },
-        ],
       },
       plugins: {
         title: {
