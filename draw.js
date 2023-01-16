@@ -35,6 +35,7 @@ export async function Draw(username, id) {
   let TaskInfoBox = document.createElement("div");
   TaskInfoBox.classList.add("graph");
   TaskInfoBox.classList.add("taskgraph");
+  TaskInfoBox.classList.add("mb-2");
   TaskInfoBox.classList.add("list-group-item");
   TaskInfoBox.appendChild(taskGraph);
   GraphsBox.appendChild(TaskInfoBox);
