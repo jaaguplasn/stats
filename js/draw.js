@@ -176,6 +176,7 @@ async function DrawXpPerTimeChart(UserData) {
           data: xp,
           backgroundColor: "rgb(50, 214, 21)",
           borderWidth: 1,
+          fill: true,
         },
       ],
     },
