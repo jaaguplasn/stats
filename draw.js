@@ -136,6 +136,14 @@ async function DrawTaskChart(UserData) {
         y: {
           beginAtZero: true,
         },
+        x: [
+          {
+            type: "time",
+            time: {
+              minUnit: "month",
+            },
+          },
+        ],
       },
       plugins: {
         title: {
