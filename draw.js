@@ -126,7 +126,7 @@ async function DrawTaskChart(UserData) {
         {
           label: "Xp",
           data: xp,
-          backgroundColor: "rgb(50, 214, 21)",
+          backgroundColor: "rgba(50, 214, 21, 0.2)",
           borderWidth: 1,
         },
       ],
