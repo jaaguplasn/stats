@@ -1,6 +1,6 @@
 import { Draw } from "./draw.js";
 import { LoginQuery } from "./queries.js";
-import { clearItems } from "./utils.js";
+import { clearItems } from "../utils.js";
 
 const User = "jaaguplasn";
 

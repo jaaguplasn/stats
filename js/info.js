@@ -73,7 +73,7 @@ async function GetTaskandLevel(UserData) {
   return UserData;
 }
 
-// Returns the amount of XP needed for any given level
+// Returns the amount of XP needed for any given level (calculation gotten from 01 git, ty Karl)
 const getXp = (level) => 33 * level ** 3 + 124.5 * level ** 2 + 672.5 * level;
 
 async function GetAudit(UserData) {
