@@ -1,5 +1,5 @@
-html {
-  background-color: rgb(249, 249, 251);
+body {
+  background-color: rgb(249, 249, 251) !important;
 }
 
 #infoboxes {
