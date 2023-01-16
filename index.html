@@ -20,28 +20,27 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <nav class="navbar bg-light">
-        <div class="container-fluid">
-          <div class="searchform pt-4 pb-4 d-flex">
-            <form class="searchform">
-              <label for="username">Search for a user</label>
-              <input
-                type="text"
-                ,
-                name="username"
-                ,
-                autocomplete="off"
-                ,
-                required,
-                id="searchInput"
-              />
-              <button class="search-btn btn visually-hidden"></button>
-            </form>
-          </div>
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+        <div class="searchform text-center pt-4 pb-4">
+          <form class="searchform">
+            <label for="username">Search for a user</label>
+            <input
+              type="text"
+              ,
+              name="username"
+              ,
+              autocomplete="off"
+              ,
+              required,
+              id="searchInput"
+            />
+            <button class="search-btn btn visually-hidden"></button>
+          </form>
         </div>
-      </nav>
-
+      </div>
+    </nav>
+    <div class="container">
       <div id="infoboxes" class="container"></div>
       <div class="loader"></div>
     </div>
