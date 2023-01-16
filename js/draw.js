@@ -46,7 +46,7 @@ export async function Draw(username, id) {
   XpPerTimeInfoBox.classList.add("graph");
   XpPerTimeInfoBox.classList.add("xppertimegraph");
   XpPerTimeInfoBox.classList.add("list-group-item");
-  TaskInfoBox.classList.add("mb-2");
+  XpPerTimeInfoBox.classList.add("mb-2");
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
   GraphsBox.appendChild(XpPerTimeInfoBox);
   InfoBoxes.appendChild(GraphsBox);
