@@ -182,9 +182,12 @@ async function DrawXpPerTimeChart(UserData) {
         y: {
           beginAtZero: true,
         },
-        x: [
+        xAxes: [
           {
             type: "time",
+            gridLines: {
+              display: true,
+            },
             time: {
               minUnit: "month",
             },
