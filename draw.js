@@ -119,7 +119,7 @@ async function DrawTaskChart(UserData) {
   });
 
   new Chart(Graph, {
-    type: "line",
+    type: "bar",
     data: {
       labels: xlabels,
       datasets: [
