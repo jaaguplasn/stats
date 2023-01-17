@@ -265,10 +265,10 @@ async function svgXpChart(UserData) {
     },
     title: "XP over time",
     hAxis: {
-      title: "Xp",
+      title: "Date",
     },
     vAxis: {
-      title: "Task Name ",
+      title: "Xp ",
     },
   };
 
