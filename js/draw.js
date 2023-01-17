@@ -1,5 +1,9 @@
 import { getInfo } from "./info.js";
 
+
+google.charts.load('current', {packages: ['corechart', 'line']});
+
+
 export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
@@ -49,10 +53,8 @@ export async function Draw(username, id) {
   XpPerTimeInfoBox.classList.add("mb-2");
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
   GraphsBox.appendChild(XpPerTimeInfoBox);
-  ///svg test
-  let chartsvg = svgTaskChart(UserData)
-  GraphsBox.appendChild(chartsvg);
   InfoBoxes.appendChild(GraphsBox);
+  svgTaskChart(UserData);
 }
 
 async function DrawUserInfo(UserData) {
@@ -205,32 +207,16 @@ async function DrawXpPerTimeChart(UserData) {
 //svg test
 async function svgTaskChart(UserData) {
   //data
-  const xlabels = []
-  const xp = []
+  let data = new google.visualization.DataTable();
+
+  let dataForGraph = []
+
   UserData.tasks.forEach((task, index) => {
     if (index !== 0) {
-      xlabels.push(task.name)
-      xp.push(task.xp)
+      dataForGraph.push(task.name, task.xp)
     }
-  })
-
-  let svg = document.createElement("div")
-  var options = {
-    chart: {
-      type: 'line'
-    },
-    series: [{
-      name: 'sales',
-      data: [30,40,35,50,49,60,70,91,125]
-    }],
-    xaxis: {
-      categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-    }
-  }
-  
-  var chart = new ApexCharts(svg, options);
-  chart.render();
-  return chart
+  });
+  console.log(dataForGraph)
 }
 
 export function clearDivs() {
