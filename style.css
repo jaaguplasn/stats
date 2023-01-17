@@ -3,7 +3,7 @@ body {
 }
 .chartsvg {
   width: 100%; 
-  min-height: 450px;
+  min-height: 600px;
 }
 #infoboxes {
   background: rgb(255, 255, 255);
