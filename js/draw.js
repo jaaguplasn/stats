@@ -266,7 +266,7 @@ async function svgXpChart(UserData) {
     },
   };
 
-  var chart = new google.visualization.BarChart(
+  var chart = new google.visualization.LineChart(
     document.getElementById("XpChartSvg")
   );
   chart.draw(data, options);
