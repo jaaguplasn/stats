@@ -199,6 +199,30 @@ async function DrawXpPerTimeChart(UserData) {
   return Graph;
 }
 
+//svg test
+async function svgTaskChart(UserData) {
+  //data
+  const xlabels = []
+  const xp = []
+  UserData.tasks.forEach((task, index) => {
+    if (index !== 0) {
+      xlabels.push(task.name)
+      xp.push(task.xp)
+    }
+  })
+  let div = document.getElementById("infoboxes");
+  let svg = document.createElement("div")
+
+  svg.classList.add("ct-chart")
+  svg.classList.add("ct-perfect-fourth")
+  var data = {
+    labels: xlabels,
+    series: xp,
+  }
+  new Chartist.Line('ct-chart', data)
+  div.appendChild(svg)
+}
+
 export function clearDivs() {
   let infoBoxes = document.getElementById("infoboxes");
   infoBoxes.innerHTML = "";
