@@ -49,8 +49,10 @@ export async function Draw(username, id) {
   XpPerTimeInfoBox.classList.add("mb-2");
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
   GraphsBox.appendChild(XpPerTimeInfoBox);
+  ///svg test
+  let chartsvg = svgTaskChart(UserData)
+  GraphsBox.appendChild(chartsvg);
   InfoBoxes.appendChild(GraphsBox);
-  svgTaskChart(UserData)
 }
 
 async function DrawUserInfo(UserData) {
@@ -211,7 +213,6 @@ async function svgTaskChart(UserData) {
       xp.push(task.xp)
     }
   })
-  let div = document.getElementById("infoboxes");
   let svg = document.createElement("div")
 
   svg.classList.add("ct-chart")
@@ -221,7 +222,7 @@ async function svgTaskChart(UserData) {
     series: xp,
   }
   new Chartist.Line('ct-chart', data)
-  div.appendChild(svg)
+  return svg
 }
 
 export function clearDivs() {
