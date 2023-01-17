@@ -1,7 +1,5 @@
 import { getInfo } from "./info.js";
-
 google.charts.load('current', {packages: ['corechart', 'line']});
-
 export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
