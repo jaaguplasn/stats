@@ -243,8 +243,6 @@ async function svgXpChart(UserData) {
     if (i === 0) {
       dataForGraph[i] = [0, 0];
     } else {
-      console.log(cumXp);
-      console.log(UserData.tasks[i].xp);
       cumXp = cumXp + parseInt(UserData.tasks[i].xp);
       dataForGraph[i] = [new Date(UserData.tasks[i].date), cumXp];
     }
