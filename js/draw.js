@@ -51,6 +51,7 @@ export async function Draw(username, id) {
   GraphsBox.appendChild(XpPerTimeInfoBox);
   ///svg test
   let chartsvg = svgTaskChart(UserData)
+  chartsvg.render();
   GraphsBox.appendChild(chartsvg);
   InfoBoxes.appendChild(GraphsBox);
 }
@@ -213,16 +214,23 @@ async function svgTaskChart(UserData) {
       xp.push(task.xp)
     }
   })
-  let svg = document.createElement("div")
 
-  svg.classList.add("ct-chart")
-  svg.classList.add("ct-perfect-fourth")
-  var data = {
-    labels: xlabels,
-    series: xp,
+  let svg = document.createElement("div")
+  var options = {
+    chart: {
+      type: 'line'
+    },
+    series: [{
+      name: 'sales',
+      data: [30,40,35,50,49,60,70,91,125]
+    }],
+    xaxis: {
+      categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+    }
   }
-  new Chartist.Line('ct-chart', data)
-  return svg
+  
+  var chart = new ApexCharts(svg, options);
+  return chart
 }
 
 export function clearDivs() {
