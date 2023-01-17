@@ -1,8 +1,6 @@
 import { getInfo } from "./info.js";
 
-
-google.charts.load('current', {packages: ['corechart', 'line']});
-
+google.charts.load("current", { packages: ["corechart", "line"] });
 
 export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
@@ -207,16 +205,12 @@ async function DrawXpPerTimeChart(UserData) {
 //svg test
 async function svgTaskChart(UserData) {
   //data
-  let data = new google.visualization.DataTable();
 
-  let dataForGraph = [[]]
-
-  UserData.tasks.forEach((task, index) => {
-    if (index !== 0) {
-      dataForGraph[index].push(task.name, task.xp)
-    }
-  });
-  console.log(dataForGraph)
+  let dataForGraph = new Array(UserData.tasks.length);
+  for (let i = 0; i < UserData.tasks.length; i++) {
+    dataForGraph[i] = [UserData.tasks[i].name, UserData.tasks[i].xp];
+  }
+  console.log(dataForGraph);
 }
 
 export function clearDivs() {
