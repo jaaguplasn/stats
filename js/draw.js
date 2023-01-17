@@ -278,4 +278,8 @@ async function svgXpChart(UserData) {
 export function clearDivs() {
   let infoBoxes = document.getElementById("infoboxes");
   infoBoxes.innerHTML = "";
+  let svgGraph1 = document.getElementById("TaskChartSvg");
+  svgGraph1.innerHTML = "";
+  let svgGraph2 = document.getElementById("XpChartSvg");
+  svgGraph2.innerHTML = "";
 }
