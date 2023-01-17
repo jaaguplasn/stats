@@ -205,12 +205,34 @@ async function DrawXpPerTimeChart(UserData) {
 //svg test
 async function svgTaskChart(UserData) {
   //data
-
   let dataForGraph = new Array(UserData.tasks.length);
   for (let i = 0; i < UserData.tasks.length; i++) {
     dataForGraph[i] = [UserData.tasks[i].name, UserData.tasks[i].xp];
   }
-  console.log(dataForGraph);
+  var data = new google.visualization.Datatable();
+  data.addColumn("string", "TaskName");
+  data.addColumn("number", "XP");
+  data.addRows(dataForGraph);
+
+  let options = {
+    animation: {
+      startup: true,
+      duration: 2500,
+      easing: "out",
+    },
+    title: "XP per task",
+    hAxis: {
+      title: "Task Name",
+    },
+    vAxis: {
+      title: "XP ",
+    },
+  };
+
+  var chart = new google.visualization.BarChart(
+    document.getElementById("TaskChartSvg")
+  );
+  chart.draw(data, options);
 }
 
 export function clearDivs() {
