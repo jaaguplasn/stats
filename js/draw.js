@@ -248,7 +248,6 @@ async function svgXpChart(UserData) {
     }
   }
   dataForGraph.shift();
-  console.log(dataForGraph);
 
   let data = new google.visualization.DataTable();
   data.addColumn("date", "X");
