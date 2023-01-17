@@ -13,6 +13,7 @@ const btn = document
     let username = document.getElementById("searchInput").value;
     let userId = await LoginQuery(username); //only for seeing if user exists
     if (userId == undefined) {
+      clearItems();
       alert("username does not exist");
     } else {
       activateLoading();
