@@ -209,11 +209,11 @@ async function svgTaskChart(UserData) {
   //data
   let data = new google.visualization.DataTable();
 
-  let dataForGraph = []
+  let dataForGraph = [[]]
 
   UserData.tasks.forEach((task, index) => {
     if (index !== 0) {
-      dataForGraph.push(task.name, task.xp)
+      dataForGraph[index].push(task.name, task.xp)
     }
   });
   console.log(dataForGraph)
