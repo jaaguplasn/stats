@@ -1,5 +1,5 @@
 import { getInfo } from "./info.js";
-google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.load("current", { packages: ["corechart", "line"] });
 export async function Draw(username, id) {
   let UserData = await getInfo(username, id);
   console.log(UserData);
@@ -206,9 +206,9 @@ async function svgTaskChart(UserData) {
   let dataForGraph = new Array(UserData.tasks.length);
   for (let i = 0; i < UserData.tasks.length; i++) {
     if (i === 0) {
-      continue
     } else {
-    dataForGraph[i] = [UserData.tasks[i].name, UserData.tasks[i].xp];
+      dataForGraph[i] = [UserData.tasks[i].name, UserData.tasks[i].xp];
+    }
   }
   let data = new google.visualization.DataTable();
   data.addColumn("string", "TaskName");
@@ -223,10 +223,10 @@ async function svgTaskChart(UserData) {
     },
     title: "XP per task",
     hAxis: {
-      title: "Task Name",
+      title: "Xp",
     },
     vAxis: {
-      title: "XP ",
+      title: "Task Name ",
     },
   };
 
