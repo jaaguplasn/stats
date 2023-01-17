@@ -51,7 +51,6 @@ export async function Draw(username, id) {
   GraphsBox.appendChild(XpPerTimeInfoBox);
   ///svg test
   let chartsvg = svgTaskChart(UserData)
-  chartsvg.render();
   GraphsBox.appendChild(chartsvg);
   InfoBoxes.appendChild(GraphsBox);
 }
@@ -230,6 +229,7 @@ async function svgTaskChart(UserData) {
   }
   
   var chart = new ApexCharts(svg, options);
+  chart.render();
   return chart
 }
 
