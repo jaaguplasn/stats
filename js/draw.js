@@ -205,11 +205,9 @@ async function svgTaskChart(UserData) {
   //data
   let dataForGraph = new Array(UserData.tasks.length);
   for (let i = 0; i < UserData.tasks.length; i++) {
-    if (i === 0) {
-    } else {
-      dataForGraph[i] = [UserData.tasks[i].name, UserData.tasks[i].xp];
-    }
+    dataForGraph[i] = [UserData.tasks[i].name, UserData.tasks[i].xp];
   }
+  dataForGraph.shift();
   let data = new google.visualization.DataTable();
   data.addColumn("string", "TaskName");
   data.addColumn("number", "XP");
