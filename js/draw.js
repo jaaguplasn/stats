@@ -205,6 +205,9 @@ async function svgTaskChart(UserData) {
   //data
   let dataForGraph = new Array(UserData.tasks.length);
   for (let i = 0; i < UserData.tasks.length; i++) {
+    if (i === 0) {
+      continue
+    } else {
     dataForGraph[i] = [UserData.tasks[i].name, UserData.tasks[i].xp];
   }
   let data = new google.visualization.DataTable();
