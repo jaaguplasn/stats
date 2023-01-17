@@ -51,6 +51,7 @@ export async function Draw(username, id) {
   GraphsBox.appendChild(XpPerTimeInfoBox);
   InfoBoxes.appendChild(GraphsBox);
   svgTaskChart(UserData);
+  svgXpChart(UserData);
 }
 
 async function DrawUserInfo(UserData) {
@@ -233,6 +234,42 @@ async function svgTaskChart(UserData) {
   );
   chart.draw(data, options);
 }
+
+async function svgXpChart(UserData) {
+  //data
+  let cumXp = 0
+  let dataForGraph = new Array(UserData.tasks.length);
+  for (let i = 0; i < UserData.tasks.length; i++) {
+    cumXp = cumXp + UserData.tasks[i].xp
+    dataForGraph[i] = [new Date (UserData.tasks[i].date), cumXp];
+  }
+  dataForGraph.shift();
+  let data = new google.visualization.DataTable();
+  data.addColumn("date", "X");
+  data.addColumn("number", "XP");
+  data.addRows(dataForGraph);
+
+  let options = {
+    animation: {
+      startup: true,
+      duration: 2500,
+      easing: "out",
+    },
+    title: "XP over time",
+    hAxis: {
+      title: "Xp",
+    },
+    vAxis: {
+      title: "Task Name ",
+    },
+  };
+
+  var chart = new google.visualization.BarChart(
+    document.getElementById("XpChartSvg")
+  );
+  chart.draw(data, options);
+}
+
 
 export function clearDivs() {
   let infoBoxes = document.getElementById("infoboxes");
