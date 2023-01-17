@@ -243,7 +243,9 @@ async function svgXpChart(UserData) {
     cumXp = cumXp + UserData.tasks[i].xp
     dataForGraph[i] = [new Date (UserData.tasks[i].date), cumXp];
   }
+  console.log(dataForGraph)
   dataForGraph.shift();
+  
   let data = new google.visualization.DataTable();
   data.addColumn("date", "X");
   data.addColumn("number", "XP");
