@@ -50,6 +50,7 @@ export async function Draw(username, id) {
   XpPerTimeInfoBox.appendChild(XpPerTimeGraph);
   GraphsBox.appendChild(XpPerTimeInfoBox);
   InfoBoxes.appendChild(GraphsBox);
+  svgTaskChart(UserData)
 }
 
 async function DrawUserInfo(UserData) {
