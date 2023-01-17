@@ -240,13 +240,17 @@ async function svgXpChart(UserData) {
   let cumXp = 0;
   let dataForGraph = new Array(UserData.tasks.length);
   for (let i = 0; i < UserData.tasks.length; i++) {
-    console.log(cumXp);
-    console.log(UserData.tasks[i].xp)
-    cumXp = cumXp + parseInt(UserData.tasks[i].xp);
-    dataForGraph[i] = [new Date(UserData.tasks[i].date), cumXp];
+    if (i === 0) {
+      dataForGraph[i] = [0, 0];
+    } else {
+      console.log(cumXp);
+      console.log(UserData.tasks[i].xp);
+      cumXp = cumXp + parseInt(UserData.tasks[i].xp);
+      dataForGraph[i] = [new Date(UserData.tasks[i].date), cumXp];
+    }
   }
-  console.log(dataForGraph);
   dataForGraph.shift();
+  console.log(dataForGraph);
 
   let data = new google.visualization.DataTable();
   data.addColumn("date", "X");
