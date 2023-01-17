@@ -237,15 +237,15 @@ async function svgTaskChart(UserData) {
 
 async function svgXpChart(UserData) {
   //data
-  let cumXp = 0
+  let cumXp = 0;
   let dataForGraph = new Array(UserData.tasks.length);
   for (let i = 0; i < UserData.tasks.length; i++) {
-    cumXp = cumXp + UserData.tasks[i].xp
-    dataForGraph[i] = [new Date (UserData.tasks[i].date), cumXp];
+    cumXp = cumXp + parseInt(UserData.tasks[i].xp);
+    dataForGraph[i] = [new Date(UserData.tasks[i].date), cumXp];
   }
-  console.log(dataForGraph)
+  console.log(dataForGraph);
   dataForGraph.shift();
-  
+
   let data = new google.visualization.DataTable();
   data.addColumn("date", "X");
   data.addColumn("number", "XP");
@@ -271,7 +271,6 @@ async function svgXpChart(UserData) {
   );
   chart.draw(data, options);
 }
-
 
 export function clearDivs() {
   let infoBoxes = document.getElementById("infoboxes");
